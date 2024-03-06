@@ -1,9 +1,6 @@
 import wave
-import sys
 
 import numpy as np
-
-np.set_printoptions(threshold=sys.maxsize)
 
 
 def sample_wav(file_path: str):

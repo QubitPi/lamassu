@@ -22,11 +22,10 @@ Turning Sounds into Bits
 ========================
 
 The first step in speech recognition is obvious — we need to feed sound waves into a computer. Sound is transmitted as
-waves. A sound clip of saying "Hello" looks like
+waves. A sound clip of someone saying "Hello" looks like
 
 .. figure:: ../img/hello-sound.png
     :align: center
-    A waveform of someone saying "Hello"
 
 Sound waves are one-dimensional. At every moment in time, they have a single value based on the height of the wave.
 Let's zoom in on one tiny part of the sound wave and take a look:
@@ -49,7 +48,6 @@ Lets sample our "Hello" sound wave 16,000 times per second. Here's the first 100
 
 .. figure:: ../img/hello-sampling.png
     :align: center
-    Each number represents the amplitude of the sound wave at 1/16000th of a second intervals
 
 .. note:: Can digital samples perfectly recreate the original analog sound wave? What about those gaps?
 
