@@ -5,9 +5,10 @@
 </div>
 
 ![Python Version][Python Version Badge]
-[![GitHub Workflow Status][GitHub Workflow Status badge]][GitHub Workflow Status URL]
 [![Read the Docs][Read the Docs badge]][Read the Docs URL]
 [![PyPI][PyPI project badge]][PyPI project url]
+[![GitHub Workflow Status][GitHub Workflow Status badge]][GitHub Workflow Status URL]
+![Last Commit][GitHub Last Commit Badge]
 [![Apache License badge]][Apache License URL]
 
 Lamassu
@@ -37,6 +38,7 @@ The use and distribution terms for Lamassu are covered by the
 [Apache License URL]: https://www.apache.org/licenses/LICENSE-2.0
 [Apache License, Version 2.0]: http://www.apache.org/licenses/LICENSE-2.0.html
 
+[GitHub Last Commit Badge]: https://img.shields.io/github/last-commit/QubitPi/lamassu/master?logo=github&style=for-the-badge
 [GitHub Workflow Status badge]: https://img.shields.io/github/actions/workflow/status/QubitPi/lamassu/ci-cd.yml?logo=github&style=for-the-badge
 [GitHub Workflow Status URL]: https://github.com/QubitPi/lamassu/actions/workflows/ci-cd.yml
 
