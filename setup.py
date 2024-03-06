@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="lamassu",
-    version="0.0.8",
+    version="0.0.9",
     description="Empowering individual to agnostically run machine learning algorithms to produce ad-hoc AI features",
     url="https://github.com/QubitPi/lamassu",
     author="Jiaqi liu",
