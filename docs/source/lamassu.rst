@@ -5,5 +5,5 @@ Lamassu
 .. toctree::
    :maxdepth: 100
 
-   rnn/vanilla
+   rnn/rnn
    speech/sampling.rst
