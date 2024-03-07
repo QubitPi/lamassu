@@ -6,12 +6,6 @@ Introduction to Recurrent Neural Networks (RNNs)
     :depth: 2
 
 
-.. automodule:: lamassu.rnn.vanilla
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
 Mathematical Formulation
 ------------------------
 
