@@ -89,18 +89,19 @@ Training
 What is the Loss Function of RNN?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-According to the discussion of Back `MACHINE LEARNING by Mitchell, Thom M. (1997)`_, at every single timestep we have a
-target value. As a loss function, which meastures training error, we could choose to have softmax
+According to the discussion of Back `MACHINE LEARNING by Mitchell, Thom M. (1997)`_, the key for training RNN is through
+"specifying a measure for the training error". We call this measure a *loss function*. As a loss function, which
+measures training error, we could choose to have *softmax*
 
 The softmax function is defined, mathematically, as
 
 .. math::
 
-    \sigma_i(\vect{z}) = \frac{e^{z_i}}{\sum_{j = 1}^{m}e^{z_j}}
+    \sigma_i(\vec{z}) = \frac{e^{z_i}}{\sum_{j = 1}^{m}e^{z_j}}
 
 where :math:`i = 1, 2, ..., m`
 
-
+Its role in the Logistic regression is to translate the linear predictive value into category probability: Imagine Zi = Wi*x + Bi is the result of linear prediction, Softmax can make Zi nonnegative by letting them become exponential, then the sum of all items is normalized, now each Oi = σi (Z) can be interpreted as the probability of data x belong to the category i, or the likelihood.
 
 
 
