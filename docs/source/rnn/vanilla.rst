@@ -129,8 +129,26 @@ From `Wikipedia <https://en.wikipedia.org/wiki/Cross-entropy/>`_:
 
 Confused? Let's put it in the context of Machine Learning.
 
+Machine Learning sees the world based on probability. The "probability distribution" identifies the various tasks to
+learn. For example, a daily language such as English or Chinese, can be seen as a probability distribution. The
+probability of "name" followed by "is" is far greater than "are" as in "My name is Jack". We call such language
+distribution :math:`p`. The task of RNN (or Machine Learning in general) is to learn an approximated distribution of
+:math:`p`; we call this approximation :math:`q`
 
+"The average number of bits needed" is can be seen as the distance between :math:`p` and :math:`q` given an event. In
+analogy of language, this can be the *quantitative* measure of the deviation between a real language phrase
+"My name is Jack" and "My name are Jack".
 
+At this point, it is easy to image that, in the Machine Learning world, the cross entropy indicates the distance between
+what the model believes the output distribution should be and what the original distribution really is.
+
+Now we have an intuitive understanding of cross entropy, let's formally define it.
+
+The cross-entropy of the distribution :math:`q` relative to a distribution :math:`p` over a given set is defined as
+
+.. math::
+
+    H(p, q) = -E_p[\logq]
 
 
 
