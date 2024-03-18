@@ -156,7 +156,7 @@ For discrete probability distributions :math:`p` and :math:`q`, we have
 
 .. math::
 
-    H(p, q) = -\sum_x p(x)\log q(x)
+    H(p, q) = -\sum_x p(\vec{x})\log q(\vec{x})
 
 Hence, **the softmax loss function of RNN is**
 
