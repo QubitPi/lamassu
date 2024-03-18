@@ -109,13 +109,20 @@ For a vector :math:`x` of :math:`K` real numbers, the the standard (unit) softma
 
 .. math::
 
-    \sigma(\vec{x})_i = \frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_i}}
+    \sigma(\vec{x})_i = \frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_j}}
 
 where :math:`i = 1, 2, ..., K` and :math:`\vec{x} = (x_1, x_2, ..., x_K) \in \mathbb{R}^K`
 
 This property of softmax function that it outputs a probability distribution makes it suitable for probabilistic
 interpretation in classification tasks. Neural networks, however, are commonly trained under a log loss (or
 cross-entropy) regime
+
+For the ease of the following discussion, we denote :math:`\sigma` as :math:`q`. Hence our softmax function for the
+discussion becomes
+
+.. math::
+
+    \vec{q}\left( \vec{x}) \right) = \left( \frac{e^{x_1}}{\sum_{j = 1}^Ke^{x_j}}, \frac{e^{x_2}}{\sum_{j = 1}^Ke^{x_j}}, ..., \frac{e^{x_K}}{\sum_{j = 1}^Ke^{x_j}} \right)
 
 Cross-Entropy
 """""""""""""
@@ -124,7 +131,7 @@ From `Wikipedia <https://en.wikipedia.org/wiki/Cross-entropy>`_:
 
     In information theory, the cross-entropy between two probability distributions :math:`p` and :math:`q` over the same
     underlying set of events measures the average number of bits needed to identify an event drawn from the set if a
-    coding scheme used for the set is optimized for an estimated probability distribution :math:`a`, rather than the
+    coding scheme used for the set is optimized for an estimated probability distribution :math:`q`, rather than the
     true distribution :math:`p`
 
 Confused? Let's put it in the context of Machine Learning.
@@ -162,9 +169,9 @@ Hence, **the softmax loss function of RNN is**
 
 .. math::
 
-    H(p, q) = -\sum_x p(x)\log\frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_i}} = H(y, p) = -\sum_i y_i\log p_i
+    H(p, q) = -\sum_x p(x)\log\frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_j}} = H(y, p) = -\sum_i y_i\log p_i
 
-where :math:`p_i = \frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_i}}`
+where :math:`p_i = \frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_j}}`
 
 .. NOTE::
 
