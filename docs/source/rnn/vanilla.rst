@@ -87,11 +87,15 @@ Training
     possible, read the chapter beforehand and refer to it if something looks confusing in the discussion of this section
 
 What is the Loss Function of RNN?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 According to the discussion of Back `MACHINE LEARNING by Mitchell, Thom M. (1997)`_, the key for training RNN is through
 "specifying a measure for the training error". We call this measure a *loss function*. As a loss function, which
-measures training error, we could choose to have *softmax*
+measures training error, we could choose to have *softmax*. We are going to show that Softmax Loss is actually a
+Softmax Activation plus a Cross-Entropy Loss.
+
+Softmax Function
+""""""""""""""""
 
 The softmax function takes as input a vector :math:`z` of :math:`K` real numbers, and normalizes it into a probability
 distribution consisting of :math:`K` probabilities proportional to the exponentials of the input numbers. That is, prior
@@ -107,10 +111,23 @@ For a vector :math:`z` of :math:`K` real numbers, the the standard (unit) softma
 
     \sigma(\vec{z})_i = \frac{e^{z_i}}{\sum_{j = 1}^Ke^{z_i}}
 
-where :math:`i = 1, 2, ..., K` and :math:`\vec{z} = {z_1, z_2, ..., z_K} \in \mathbb{R}^K`
+where :math:`i = 1, 2, ..., K` and :math:`\vec{z} = (z_1, z_2, ..., z_K) \in \mathbb{R}^K`
 
+This property of softmax function that it outputs a probability distribution makes it suitable for probabilistic
+interpretation in classification tasks. Neural networks, however, are commonly trained under a log loss (or
+cross-entropy) regime
 
+Cross-Entropy
+"""""""""""""
 
+From Wikipedia:
+
+    In information theory, the cross-entropy between two probability distributions :math:`p` and :math:`q` over the same
+    underlying set of events measures the average number of bits needed to identify an event drawn from the set if a
+    coding scheme used for the set is optimized for an estimated probability distribution :math:`a`, rather than the
+    true distribution :math:`p`
+
+Confused? Let's put it in the context of Machine Learning.
 
 
 
