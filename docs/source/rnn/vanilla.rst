@@ -180,7 +180,11 @@ For discrete probability distributions :math:`p` and :math:`q`, we have
 
     H(p, q) = -\sum_x p(\vec{x})\log q(\vec{x})
 
-This is our **softmax loss function for RNN**
+Our **softmax loss function for RNN** thus is defined by
+
+.. math::
+
+    \mathcal{L} = -\sum_i y_i\log q_i
 
 .. NOTE::
 
@@ -191,7 +195,7 @@ This is our **softmax loss function for RNN**
 Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-
+We are going to take
 
 .. rubric:: Footnotes
 
