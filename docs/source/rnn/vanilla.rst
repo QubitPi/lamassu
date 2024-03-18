@@ -93,6 +93,8 @@ To summarize, we have a RNN model defined by
 
     h_t = \tanh\left( W_{hh}h_{t - 1} + W_{xh}x_t \right)
 
+.. math::
+
     y_t = W_{hy}h_t
 
 .. figure:: ../img/vanilla-rnn-mformula-1.png
