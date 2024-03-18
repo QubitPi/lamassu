@@ -101,35 +101,14 @@ To summarize, we have a RNN model defined by
 .. figure:: ../img/vanilla-rnn-mformula-2.png
     :align: center
 
-Initialization
---------------
-
-Before training, we need to initialize the :math:`W`, :math:`b`, and, don't forget, :math:`h_0`, the initial hidden
-state. Each of them can be initialized using either of the 2 approaches:
-
-1. All-zero
-2. Random
-
-Common literature [#f1]_ [#f2]_ tends to initialize
-
-* *small* random values to :math:`W`
-* all-zero to :math:`b`
-
-Training
---------
+Loss Function of RNN
+--------------------
 
 
-
-What is the Loss Function of RNN?
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-According to the discussion of Back `MACHINE LEARNING by Mitchell, Thom M. (1997)`_, the key for training RNN is through
-"specifying a measure for the training error". We call this measure a *loss function*. As a loss function, which
-measures training error, we could choose to have *softmax*. We are going to show that Softmax Loss is actually a
-Softmax Activation plus a Cross-Entropy Loss.
-
-Softmax Function
-""""""""""""""""
+According to the discussion of `MACHINE LEARNING by Mitchell, Thom M. (1997)`_, the key for training RNN or any neural
+network is through "specifying a measure for the training error". We call this measure a *loss function*. A common
+choice of loose function, which we will be using in Lamassu for RNN, is *softmax*. We are going to show that Softmax
+Loss is actually a *Softmax Activation* plus a *Cross-Entropy Loss*.
 
 The softmax function takes as input a vector :math:`x` of :math:`K` real numbers, and normalizes it into a probability
 distribution consisting of :math:`K` probabilities proportional to the exponentials of the input numbers. That is, prior
@@ -291,10 +270,6 @@ applications are summed up in the table below:
      - Machine translation
 
 .. rubric:: Footnotes
-
-.. [#f1] https://lucyliu-ucsb.github.io/posts/Backpropagation-of-a-vanilla-RNN/#initialize-parameters
-.. [#f2] https://gist.github.com/karpathy/d4dee566867f8291f086
-
 
 .. _`exploding gradient`: https://qubitpi.github.io/stanford-cs231n.github.io/rnn/#vanilla-rnn-gradient-flow--vanishing-gradient-problem
 
