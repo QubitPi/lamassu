@@ -43,6 +43,7 @@ But one might have noticed that if the 3rd function (box) produces `f('l') = 'l'
 Now it makes much more sense with:
 
     f('l', h2) = 'l'
+
     f('l', h3) = 'o'
 
 But what if we want to predict a longer word? For example, how about predicting "learning" by "learnin"? That's simple,
