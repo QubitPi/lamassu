@@ -19,11 +19,11 @@ For each timestep :math:`t` the activation and the output :math:`y_t` are expres
 
 .. math::
 
-    h_t = g_1\left( W_{hh}h_{t - 1} + W_{hx}x_t + b_h \right)
+    h_t = g_1\left( W_{hh}h_{t - 1} + W_{xh}x_t + b_h \right)
 
-    y_t = g_2\left( W_{yh}h_t + b_y \right)
+    y_t = g_2\left( W_{hy}h_t + b_y \right)
 
-where :math:`W_{hx}`, :math:`W_{hh}`, :math:`W_{yh}`, :math:`b_h`, :math:`b_y` are coefficients that are shared
+where :math:`W_{xh}`, :math:`W_{hh}`, :math:`W_{hy}`, :math:`b_h`, :math:`b_y` are coefficients that are shared
 temporally and :math:`g_1`, :math:`g_2` are activation functions. The diagram below visualizes the 2 formula above:
 
 .. figure:: ../img/description-block-rnn-ltr.png
@@ -34,17 +34,34 @@ where we use a recurrence formula that basically tells us how we should update o
 hidden state :math:`h_{t - 1}` and the current input :math:`x_t`. In particular, we're going to have weight matrices
 :math:`W_{hh}` and :math:`W_{xh}`. They will project both :math:`h_{t - 1}` and :math:`x_t`. Then they are summed and
 non-linearnized with activation function to update the :math:`h_t` at timestep :math:`t`. This recurrence is telling us
-how :math:`h` will change as a function of its history and also the current input at this timestep
+how :math:`h` will change as a function of its history and also the current input at this timestep:
 
 .. NOTE::
    A typical activation function is :math:`tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}`
 
+.. math::
+
+    h_t = \tanh\left( W_{hh}h_{t - 1} + W_{xh}x_t \right)
+
+.. figure:: ../img/vanilla-rnn-mformula-1.png
+    :align: center
+
+We base predictions on top of :math:`h_t` by using just another matrix projection on top of the hidden state. This is
+the simplest complete case in which we can wire up a neural network:
+
+.. math::
+
+    y_t = W_{hy}h_t
+
 
 Our target is to learn the following 3 weight matrices
 
-1. :math:`W_{hx}`
+.. figure:: ../img/vanilla-rnn-mformula-2.png
+    :align: center
+
+1. :math:`W_{xh}`
 2. :math:`W_{hh}`
-3. :math:`W_{yh}`
+3. :math:`W_{hy}`
 
 and 2 bias vectors:
 
