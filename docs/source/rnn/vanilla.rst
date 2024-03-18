@@ -103,7 +103,11 @@ probabilities.
 For a vector :math:`z` of :math:`K` real numbers, the the standard (unit) softmax function
 :math:`\sigma: \mathbb{R}^K \mapsto (0, 1)^K`, where :math:`K \ge 1` is defined by
 
+.. math::
 
+    \sigma(\vec{z})_i = \frac{e^{z_i}}{\sum_{j = 1}^Ke^{z_i}}
+
+where :math:`i = 1, 2, ..., K` and :math:`\vec{z} = {z_1, z_2, ..., z_K} \in \mathbb{R}^K`
 
 
 
