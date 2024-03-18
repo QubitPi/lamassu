@@ -150,8 +150,43 @@ The cross-entropy of the distribution :math:`q` relative to a distribution :math
 
     H(p, q) = -E_p\left[ \log q \right]
 
-where :math:`E_p[]` is the expected value operator with respect to the distribution :math:`p`. In machine learning
-where the module is usually a continuous function, this is equal to 1. Hence, **the loss function of RNN is**
+where :math:`E_p[]` is the expected value operator with respect to the distribution :math:`p`.
+
+For discrete probability distributions :math:`p` and :math:`q`, we have
+
+.. math::
+
+    H(p, q) = -\sum_x p(x)\log q(x)
+
+
+Hence, **the softmax loss function is**
+
+.. math::
+
+    H(y, x) = -\sum_i y_i\log\sigma(\vec{x})_i = -\sum_i y_i\log\frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_i}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .. math::
 
