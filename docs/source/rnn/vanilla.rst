@@ -4,15 +4,15 @@ Introduction to Recurrent Neural Networks (RNNs)
 
 .. admonition:: Prerequisite
 
-    This section requires familiarity of basic Artificial Neural Network concepts, which are drawn from *Chapter 4 -
+    This article requires familiarity of basic Artificial Neural Network concepts, which are drawn from *Chapter 4 -
     Artificial Neural Networks* (p. 81) of `MACHINE LEARNING by Mitchell, Thom M. (1997)`_ Paperback. Please, if
     possible, read the chapter beforehand and refer to it if something looks confusing in the discussion of this section
 
 .. contents:: Table of Contents
     :depth: 2
 
-We all heard of this buz word "LLM" (Large Language Model). But let's put that aside for just a second. Let's imagine
-a much simpler one called "character-level language model" where, for example, we input a prefix of a word such as
+We all heard of this buz word "LLM" (Large Language Model). But let's put that aside for just a second and look at a
+much simpler one called "character-level language model" where, for example, we input a prefix of a word such as
 "hell" and the model outputs a complete word "hello". That is, this language model predicts the next character of a
 character sequence
 
@@ -24,7 +24,7 @@ This is like a Math function where we have:
 
     We call inputs like "hell" as **sequence**
 
-How do we obtain a function like this? One approach is have 4 black boxes, each of which takes a single character as
+How do we obtain a function like this? One approach is to have 4 black boxes, each of which takes a single character as
 input and calculates an output:
 
 .. figure:: ../img/rnn-4-black-boxes.png
@@ -33,8 +33,8 @@ input and calculates an output:
 
 But one might have noticed that if the 3rd function (box) produces `f('l') = 'l'`, why would the 4th function
 (box), given the same input, outputs something different (`'o'`)? That's a great catch. Maybe we should take the
-"**history**" into account. Instead of having :math:`f` depend on parameter, we now have it take 2 parameters. 1: a
-character; 2: a number that summarizes the previous calculations:
+"**history**" into account. Instead of having :math:`f` depend on 1 parameter, we now have it take 2 parameters. 1: a
+character; 2: a variable that summarizes the previous calculations:
 
 .. figure:: ../img/rnn-4-black-boxes-connected.png
     :align: center
@@ -59,20 +59,27 @@ that of perceptron:
     h_t = g_1\left( W_{hh}h_{t - 1} + W_{xh}x_t + b_h \right)
 
 where :math:`t` is the index of the "black boxes" shown above. In our example of "hell",
-:math:`t \in \left{ 1, 2, 3, 4 \right}`
+:math:`t \in \{ 1, 2, 3, 4 \}`
 
-The perceptron computes the output like 'e', 'l', 'l', 'o'. We call those value :math:`y` which is computed as
+The other perceptron computes the output like 'e', 'l', 'l', 'o'. We call those value :math:`y` which is computed as
 
 .. math::
 
     y_t = g_2\left( W_{hy}h_t + b_y \right)
 
-.. admonition:: What are :math:`g_1` and `g_2`?
+.. admonition:: What are :math:`g_1` and :math:`g_2`?
 
     They are *activation functions* which are used to change the linear function in a perceptron to a non-linear
     function. Please refer to `MACHINE LEARNING by Mitchell, Thom M. (1997)`_ Paperback (page 96) for more details
 
-*Training a RNN model is the same thing as searching for the following optimal parameters of these two perceptrons*:
+    A typical activation function is
+
+    .. math::
+
+        `tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}`
+
+*Training a RNN model is the same thing as searching for the optimal values for the following parameters of these two
+perceptrons*:
 
 1. :math:`W_{xh}`
 2. :math:`W_{hh}`
@@ -81,36 +88,9 @@ The perceptron computes the output like 'e', 'l', 'l', 'o'. We call those value 
 5. :math:`b_y`
 
 
-Mathematical Formulation
-------------------------
-
-Recurrent neural networks, also known as RNNs, are a class of neural networks that allow previous outputs to be used as
-part of inputs while having hidden states. They are typically as follows:
 
 
 
-For each timestep :math:`t` the activation and the output :math:`y_t` are expressed as follows:
-
-.. math::
-
-    h_t = g_1\left( W_{hh}h_{t - 1} + W_{xh}x_t + b_h \right)
-
-    y_t = g_2\left( W_{hy}h_t + b_y \right)
-
-where :math:`W_{xh}`, :math:`W_{hh}`, :math:`W_{hy}`, :math:`b_h`, :math:`b_y` are coefficients that are shared
-temporally and :math:`g_1`, :math:`g_2` are activation functions. The diagram below visualizes the 2 formula above:
-
-
-
-In the most simplest form of RNN, which we call a *Vanilla RNN*, the network is just a single hidden state :math:`h`
-where we use a recurrence formula that basically tells us how we should update our hidden state :math:`h` with previous
-hidden state :math:`h_{t - 1}` and the current input :math:`x_t`. In particular, we're going to have weight matrices
-:math:`W_{hh}` and :math:`W_{xh}`. They will project both :math:`h_{t - 1}` and :math:`x_t`. Then they are summed and
-non-linearnized with activation function to update the :math:`h_t` at timestep :math:`t`. This recurrence is telling us
-how :math:`h` will change as a function of its history and also the current input at this timestep:
-
-.. NOTE::
-   A typical activation function is :math:`tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}`
 
 
 
