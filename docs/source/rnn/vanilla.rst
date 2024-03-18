@@ -15,14 +15,13 @@ part of inputs while having hidden states. They are typically as follows:
 .. figure:: ../img/architecture-rnn-ltr.png
     :align: center
 
-For each timestep :math:`t` the activation :math:`a^{\langle t \rangle}` and the output :math:`y^{\langle t \rangle}`
-are expressed as follows:
+For each timestep :math:`t` the activation and the output :math:`y_t` are expressed as follows:
 
 .. math::
 
-    h^{\langle t \rangle} = g_1\left( W_{hh}h^{\langle t - 1 \rangle} + W_{hx}x^{\langle t \rangle} + b_h \right)
+    h_t = g_1\left( W_{hh}h_{t - 1} + W_{hx}x_t + b_h \right)
 
-    y^{\langle t \rangle} = g_2\left( W_{yh}h^{\langle t \rangle} + b_y \right)
+    y_t = g_2\left( W_{yh}h_t + b_y \right)
 
 where :math:`W_{hx}`, :math:`W_{hh}`, :math:`W_{yh}`, :math:`b_h`, :math:`b_y` are coefficients that are shared
 temporally and :math:`g_1`, :math:`g_2` are activation functions. The diagram below visualizes the 2 formula above:
