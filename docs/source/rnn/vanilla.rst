@@ -155,7 +155,7 @@ where the module is usually a continuous function, this is equal to 1. Hence, **
 
 .. math::
 
-    \mathcal{L}\left( p, q \right) = H(p, q) = -E_p\left[ \log\sigma(\vec{y})_i \right]
+    \mathcal{L}\left( p, q \right) = H(p, q) = -E_p\left[ \log\sigma(\vec{q})_i \right]
 
 
 In the case of a recurrent neural network, we are essentially backpropagation through time, which means that we are
@@ -165,7 +165,7 @@ the loss at every time step:
 
 .. math::
 
-    \mathcal{L}\left( \hat{y}, y \right) = \sum_{t = 1}^{T_y}\mathcal{L}\left( \hat{y}^{<t>}, y^{<t>} \right)
+    \mathcal{L}\left( t, o \right) = -\sum_{t = 1}^{T_y}E_p\left[ \log\sigma(\vec{q})_i \right]
 
 However, this becomes problematic when we want to train a sequence that is very long. For example, if we were to train a
 a paragraph of words, we have to iterate through many layers before we can compute one simple gradient step. In
