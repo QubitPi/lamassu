@@ -29,6 +29,17 @@ temporally and :math:`g_1`, :math:`g_2` are activation functions. The diagram be
 .. figure:: ../img/description-block-rnn-ltr.png
     :align: center
 
+In the most simplest form of RNN, which we call a *Vanilla RNN*, the network is just a single hidden state :math:`h`
+where we use a recurrence formula that basically tells us how we should update our hidden state :math:`h` with previous
+hidden state :math:`h_{t - 1}` and the current input :math:`x_t`. In particular, we're going to have weight matrices
+:math:`W_{hh}` and :math:`W_{xh}`. They will project both :math:`h_{t - 1}` and :math:`x_t`. Then they are summed and
+non-linearnized with activation function to update the :math:`h_t` at timestep :math:`t`. This recurrence is telling us
+how :math:`h` will change as a function of its history and also the current input at this timestep
+
+.. NOTE::
+   A typical activation function is :math:`tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}`
+
+
 Our target is to learn the following 3 weight matrices
 
 1. :math:`W_{hx}`
