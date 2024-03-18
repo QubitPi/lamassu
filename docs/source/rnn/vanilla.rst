@@ -36,6 +36,13 @@ parameters. 1: a character; 2: a number that summarizes the previous calculation
 .. figure:: ../img/rnn-4-black-boxes-connected.png
     :align: center
 
+Now it makes much more sense with
+
+.. math::
+
+    f('l', h_2) = 'l'
+    f('l', h_3) = 'l'
+
 
 we call "hell" in this case a **sequence**
 
