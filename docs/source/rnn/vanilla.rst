@@ -93,15 +93,21 @@ According to the discussion of Back `MACHINE LEARNING by Mitchell, Thom M. (1997
 "specifying a measure for the training error". We call this measure a *loss function*. As a loss function, which
 measures training error, we could choose to have *softmax*
 
-The softmax function is defined, mathematically, as
+The softmax function takes as input a vector :math:`z` of :math:`K` real numbers, and normalizes it into a probability
+distribution consisting of :math:`K` probabilities proportional to the exponentials of the input numbers. That is, prior
+to applying softmax, some vector components could be negative, or greater than one; and might not sum to 1; but after
+applying softmax, each component will be in the interval :math:`(0, 1)` and the components will add up to 1, so that
+they can be interpreted as probabilities. Furthermore, the larger input components will correspond to larger
+probabilities.
 
-.. math::
+For a vector :math:`z` of :math:`K` real numbers, the the standard (unit) softmax function
+:math:`\sigma: \mathbb{R}^K \mapsto (0, 1)^K`, where :math:`K \ge 1` is defined by
 
-    \sigma_i(\vec{z}) = \frac{e^{z_i}}{\sum_{j = 1}^{m}e^{z_j}}
 
-where :math:`i = 1, 2, ..., m`
 
-Its role in the Logistic regression is to translate the linear predictive value into category probability: Imagine Zi = Wi*x + Bi is the result of linear prediction, Softmax can make Zi nonnegative by letting them become exponential, then the sum of all items is normalized, now each Oi = σi (Z) can be interpreted as the probability of data x belong to the category i, or the likelihood.
+
+
+
 
 
 
