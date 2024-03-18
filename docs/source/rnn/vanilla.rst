@@ -20,7 +20,7 @@ This is like a Math function where we have
 
 .. math::
 
-    f(hell") = "hello"
+    f(``hell'') = ``hello''
 
 How do we obtain a function like this? One approach is have 4 black boxes, each of which takes a single character as
 input and calculates an output:
@@ -28,7 +28,7 @@ input and calculates an output:
 .. figure:: ../img/rnn-4-black-boxes.png
     :align: center
 
-But one might have noticed that if the 3rd function (box) produces :math:`f(`l') = \lq l \rq`, why would the 4th function
+But one might have noticed that if the 3rd function (box) produces :math:`f(`l') = `l'`, why would the 4th function
 (box), given the same input, outputs something different (`o`) than the 3rd function? That's a great catch. Maybe we
 should take the "**history**" into account. Instead of having :math:`f` depend on parameter, we now have it take 2
 parameters. 1: a character; 2: a number that summarizes the previous calculations:
