@@ -10,12 +10,13 @@ Mathematical Formulation
 ------------------------
 
 Recurrent neural networks, also known as RNNs, are a class of neural networks that allow previous outputs to be used as
-inputs while having hidden states. They are typically as follows:
+part of inputs while having hidden states. They are typically as follows:
 
 .. figure:: ../img/architecture-rnn-ltr.png
     :align: center
 
-For each timestep :math:`t` the activation :math:`a^{\langle t \rangle}` and the output :math:`y^{\langle t \rangle}` are expressed as follows:
+For each timestep :math:`t` the activation :math:`a^{\langle t \rangle}` and the output :math:`y^{\langle t \rangle}`
+are expressed as follows:
 
 .. math::
 
@@ -23,73 +24,61 @@ For each timestep :math:`t` the activation :math:`a^{\langle t \rangle}` and the
 
     y^{\langle t \rangle} = g_2\left( W_{yh}h^{\langle t \rangle} + b_y \right)
 
-where :math:`W_{hx}`, :math:`W_{hh}`, :math:`W_{yh}`, :math:`b_h`, :math:`b_y` are coefficients that are shared temporally and :math:`g_1`, :math:`g_2` are activation functions.
+where :math:`W_{hx}`, :math:`W_{hh}`, :math:`W_{yh}`, :math:`b_h`, :math:`b_y` are coefficients that are shared
+temporally and :math:`g_1`, :math:`g_2` are activation functions. The diagram below visualizes the 2 formula above:
 
 .. figure:: ../img/description-block-rnn-ltr.png
     :align: center
 
-A Python implementation of network above, as an example, could be as follows:
+Our target is to learn the following 3 weight matrices
 
-.. code-block:: python
+1. :math:`W_{hx}`
+2. :math:`W_{hh}`
+3. :math:`W_{yh}`
 
-    import numpy as np
-    from math import exp
+and 2 bias vectors:
 
-    np.random.seed(0)
-    class VanillaRecurrentNetwork(object):
+1. :math:`b_h`
+2. :math:`b_y`
 
-        def __init__(self):
-            self.hidden_state = np.zeros((3, 3))
-            self.W_hh = np.random.randn(3, 3)
-            self.W_xh = np.random.randn(3, 3)
-            self.W_hy = np.random.randn(3, 3)
-            self.Bh = np.random.randn(3,)
-            self.By = np.random.rand(3,)
+Initialization
+--------------
 
-            self.hidden_state_activation_function = lambda x : np.tanh(x)
-            self.y_activation_function = lambda x : x
+Before training, we need to initialize the :math:`W`, :math:`b`, and, don't forget, :math:`h_0`, the initial hidden
+state. Each of them can be initialized using either of the 2 approaches:
 
-        def forward_prop(self, x):
-            self.hidden_state = self.hidden_state_activation_function(
-                np.dot(self.hidden_state, self.W_hh) + np.dot(x, self.W_xh) + self.Bh
-            )
+1. All-zero
+2. Random
 
-            return self.y_activation_function(self.W_hy.dot(self.hidden_state) + self.By)
+Common literature [#f1]_ [#f2]_ tends to initialize
 
-Notice the weight matrix above are randomly initialized. This makes it a "silly" network that doesn't help us anything
-good:
-
-.. code-block:: python
-
-    input_vector = np.ones((3, 3))
-    silly_network = RecurrentNetwork()
-
-    # Notice that same input, but leads to different ouptut at every single time step.
-    print silly_network.forward_prop(input_vector)
-    print silly_network.forward_prop(input_vector)
-    print silly_network.forward_prop(input_vector)
-
-    # this gives us
-    [[-1.73665315 -2.40366542 -2.72344361]
-     [ 1.61591482  1.45557046  1.13262256]
-     [ 1.68977504  1.54059305  1.21757531]]
-    [[-2.15023381 -2.41205828 -2.71701457]
-     [ 1.71962883  1.45767515  1.13101034]
-     [ 1.80488553  1.542929    1.21578594]]
-    [[-2.15024751 -2.41207375 -2.720968  ]
-     [ 1.71963227  1.45767903  1.13200175]
-     [ 1.80488935  1.54293331  1.21688628]]
-
-This is because we haven't train our RNN network yet, which we discuss next
+* *small* random values to :math:`W`
+* all-zero to :math:`b`
 
 Training
 --------
 
 .. admonition:: Prerequisite
 
-    We would assume some basic Artificial Neural Network concepts, which are drawn from *Chapter 4 - Artificial Neural
-    Networks* (p. 81) of `MACHINE LEARNING by Mitchell, Thom M. (1997)`_ Paperback. Please, if possible, read the
-    chapter beforehand and refer to it if something looks confusing in the discussion of this section
+    This section requires familiarity of basic Artificial Neural Network concepts, which are drawn from *Chapter 4 -
+    Artificial Neural Networks* (p. 81) of `MACHINE LEARNING by Mitchell, Thom M. (1997)`_ Paperback. Please, if
+    possible, read the chapter beforehand and refer to it if something looks confusing in the discussion of this section
+
+What is the Error Function of RNN?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+In the discussion of Back `MACHINE LEARNING by Mitchell, Thom M. (1997)`_
+
+
+
+
+
+
+
+
+
+
+
 
 In the case of a recurrent neural network, we are essentially backpropagation through time, which means that we are
 forwarding through entire sequence to compute losses, then backwarding through entire sequence to compute gradients.
@@ -165,6 +154,12 @@ applications are summed up in the table below:
        | :math:`T_x \ne T_y`
      - .. figure:: ../img/rnn-many-to-many-different-ltr.png
      - Machine translation
+
+.. rubric:: Footnotes
+
+.. [#f1] https://lucyliu-ucsb.github.io/posts/Backpropagation-of-a-vanilla-RNN/#initialize-parameters
+.. [#f2] https://gist.github.com/karpathy/d4dee566867f8291f086
+
 
 .. _`exploding gradient`: https://qubitpi.github.io/stanford-cs231n.github.io/rnn/#vanilla-rnn-gradient-flow--vanishing-gradient-problem
 
