@@ -163,9 +163,9 @@ Hence, **the softmax loss function of RNN is**
 
 .. math::
 
-    H(p, q) = -\sum_x p(x)\log \frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_i}}
+    H(p, q) = -\sum_x p(x)\log\frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_i}} = H(y, p) = -\sum_i y_i\log p_i
 
-
+where :math:`p_i = \frac{e^{z_i}}{\sum_{j = 1}^Ke^{z_i}}`
 
 .. NOTE::
 
