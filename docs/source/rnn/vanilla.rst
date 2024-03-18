@@ -173,6 +173,19 @@ where :math:`p_i = \frac{e^{z_i}}{\sum_{j = 1}^Ke^{z_i}}`
     forwarding through entire sequence to compute losses, then backwarding through entire sequence to compute gradients.
     This is why the loss function of RNN is in a summation form above.
 
+Deriving Gradient Descent Weight Update Rule
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+
+
+
+
+
+
+
 
 However, this becomes problematic when we want to train a sequence that is very long. For example, if we were to train a
 a paragraph of words, we have to iterate through many layers before we can compute one simple gradient step. In
