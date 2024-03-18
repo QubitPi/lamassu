@@ -28,7 +28,7 @@ input and calculates an output:
 .. figure:: ../img/rnn-4-black-boxes.png
     :align: center
 
-But one might have noticed that if the 3rd function (box) produces :math:`f(\lq l \rq) = \lq l \rq`, why would the 4th function
+But one might have noticed that if the 3rd function (box) produces :math:`f(`l') = \lq l \rq`, why would the 4th function
 (box), given the same input, outputs something different (`o`) than the 3rd function? That's a great catch. Maybe we
 should take the "**history**" into account. Instead of having :math:`f` depend on parameter, we now have it take 2
 parameters. 1: a character; 2: a number that summarizes the previous calculations:
@@ -41,7 +41,8 @@ Now it makes much more sense with
 .. math::
 
     f('l', h_2) = 'l'
-    f('l', h_3) = 'l'
+    f('l', h_3) = 'o'
+
 
 
 we call "hell" in this case a **sequence**
