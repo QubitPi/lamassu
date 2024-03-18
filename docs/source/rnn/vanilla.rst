@@ -106,7 +106,6 @@ To summarize, we have a RNN model defined by
 Loss Function of RNN
 --------------------
 
-
 According to the discussion of `MACHINE LEARNING by Mitchell, Thom M. (1997)`_, the key for training RNN or any neural
 network is through "specifying a measure for the training error". We call this measure a *loss function*. A common
 choice of loose function, which we will be using in Lamassu for RNN, is *softmax*. We are going to show that Softmax
@@ -181,9 +180,7 @@ For discrete probability distributions :math:`p` and :math:`q`, we have
 
     H(p, q) = -\sum_x p(\vec{x})\log q(\vec{x})
 
-This is our ** softmax loss function for RNN**
-
-
+This is our **softmax loss function for RNN**
 
 .. NOTE::
 
@@ -195,81 +192,6 @@ Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 
-
-
-
-
-
-
-
-
-
-
-However, this becomes problematic when we want to train a sequence that is very long. For example, if we were to train a
-a paragraph of words, we have to iterate through many layers before we can compute one simple gradient step. In
-practice, for the back propagation, we examine how the output at the very *last* timestep affects the weights at the
-very first time step. Then we can compute the gradient of loss function, the details of which can be found in the
-`Vanilla RNN Gradient Flow & Vanishing Gradient Problem`_
-
-.. admonition:: Gradient Clipping
-
-    Gradient clipping is a technique used to cope with the `exploding gradient`_ problem sometimes encountered when
-    performing backpropagation. By capping the maximum value for the gradient, this phenomenon is controlled in
-    practice.
-
-    .. figure:: ../img/gradient-clipping.png
-        :align: center
-
-    In order to remedy the vanishing gradient problem, specific gates are used in some types of RNNs and usually have a
-    well-defined purpose. They are usually noted :math:`\Gamma` and are defined as
-
-    .. math::
-
-        \Gamma = \sigma(Wx^{<t>} + Ua^{<t - 1>} + b)
-
-    where :math:`W`, :math:`U`, and :math:`b` are coefficients specific to the gate and :math:`\sigma` is the sigmoid
-    function
-
-LSTM Formulation
-^^^^^^^^^^^^^^^^
-
-Now we know that Vanilla RNN has Vanishing/exploding gradient problem, `LSTM Formulation`_ discusses the theory of LSTM
-which is used to remedy this problem.
-
-Applications of RNNs
---------------------
-
-RNN models are mostly used in the fields of natural language processing and speech recognition. The different
-applications are summed up in the table below:
-
-.. list-table:: Applications of RNNs
-   :widths: 20 60 20
-   :align: center
-   :header-rows: 1
-
-   * - Type of RNN
-     - Illustration
-     - Example
-   * - | One-to-one
-       | :math:`T_x = T_y = 1`
-     - .. figure:: ../img/rnn-one-to-one-ltr.png
-     - Traditional neural network
-   * - | One-to-many
-       | :math:`T_x = 1`, :math:`T_y > 1`
-     - .. figure:: ../img/rnn-one-to-many-ltr.png
-     - Music generation
-   * - | Many-to-one
-       | :math:`T_x > 1`, :math:`T_y = 1`
-     - .. figure:: ../img/rnn-many-to-one-ltr.png
-     - Sentiment classification
-   * - | Many-to-many
-       | :math:`T_x = T_y`
-     - .. figure:: ../img/rnn-many-to-many-same-ltr.png
-     - Named entity recognition
-   * - | Many-to-many
-       | :math:`T_x \ne T_y`
-     - .. figure:: ../img/rnn-many-to-many-different-ltr.png
-     - Machine translation
 
 .. rubric:: Footnotes
 
