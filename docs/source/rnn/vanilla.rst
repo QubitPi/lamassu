@@ -155,12 +155,7 @@ where the module is usually a continuous function, this is equal to 1. Hence, **
 
 .. math::
 
-    \mathcal{L} = H(p, q) = -E_p\left[ \log\sigma(\vec{z})_i \right]
-
-
-
-
-
+    \mathcal{L}\left( p, q \right) = H(p, q) = -E_p\left[ \log\sigma(\vec{y})_i \right]
 
 
 In the case of a recurrent neural network, we are essentially backpropagation through time, which means that we are
