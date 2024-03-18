@@ -63,11 +63,6 @@ Our target is to learn the following 3 weight matrices
 2. :math:`W_{hh}`
 3. :math:`W_{hy}`
 
-and 2 bias vectors:
-
-1. :math:`b_h`
-2. :math:`b_y`
-
 Initialization
 --------------
 
@@ -91,10 +86,19 @@ Training
     Artificial Neural Networks* (p. 81) of `MACHINE LEARNING by Mitchell, Thom M. (1997)`_ Paperback. Please, if
     possible, read the chapter beforehand and refer to it if something looks confusing in the discussion of this section
 
-What is the Error Function of RNN?
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+What is the Loss Function of RNN?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-In the discussion of Back `MACHINE LEARNING by Mitchell, Thom M. (1997)`_
+According to the discussion of Back `MACHINE LEARNING by Mitchell, Thom M. (1997)`_, at every single timestep we have a
+target value. As a loss function, which meastures training error, we could choose to have softmax
+
+The softmax function is defined, mathematically, as
+
+.. math::
+
+    \sigma_i(\vect{z}) = \frac{e^{z_i}}{\sum_{j = 1}^{m}e^{z_j}}
+
+where :math:`i = 1, 2, ..., m`
 
 
 
