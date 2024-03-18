@@ -150,6 +150,12 @@ The cross-entropy of the distribution :math:`q` relative to a distribution :math
 
     H(p, q) = -E_p[\logq]
 
+where :math:`E_p[\dot]` is the expected value operator with respect to the distribution :math:`p`. In machine learning
+where the module is usually a continuous function, this is equal to 1. Hence, **the loss function of RNN is**
+
+.. math::
+
+    H(p, q) = -E_p[\log\sigma(\vec{z})_i]
 
 
 
