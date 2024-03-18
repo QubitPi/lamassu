@@ -120,7 +120,7 @@ cross-entropy) regime
 Cross-Entropy
 """""""""""""
 
-From Wikipedia:
+From `Wikipedia <https://en.wikipedia.org/wiki/Cross-entropy/>`_:
 
     In information theory, the cross-entropy between two probability distributions :math:`p` and :math:`q` over the same
     underlying set of events measures the average number of bits needed to identify an event drawn from the set if a
