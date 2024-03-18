@@ -16,11 +16,9 @@ a much simpler one called "character-level language model" where, for example, w
 "hell" and the model outputs a complete word "hello". That is, this language model predicts the next character of a
 character sequence
 
-This is like a Math function where we have
+This is like a Math function where we have:
 
-.. math::
-
-    f(``hell'') = ``hello''
+    f("hell") = "hello"
 
 How do we obtain a function like this? One approach is have 4 black boxes, each of which takes a single character as
 input and calculates an output:
@@ -28,8 +26,8 @@ input and calculates an output:
 .. figure:: ../img/rnn-4-black-boxes.png
     :align: center
 
-But one might have noticed that if the 3rd function (box) produces :math:`f(`l') = `l'`, why would the 4th function
-(box), given the same input, outputs something different (`o`) than the 3rd function? That's a great catch. Maybe we
+But one might have noticed that if the 3rd function (box) produces `f('l') = 'l'`, why would the 4th function
+(box), given the same input, outputs something different (`'o'`) than the 3rd function? That's a great catch. Maybe we
 should take the "**history**" into account. Instead of having :math:`f` depend on parameter, we now have it take 2
 parameters. 1: a character; 2: a number that summarizes the previous calculations:
 
@@ -42,6 +40,9 @@ Now it makes much more sense with
 
     f('l', h_2) = 'l'
     f('l', h_3) = 'o'
+
+But what if we want to predict a longer word? For example, how about predicting "learning" by "learnin"? That's simple,
+we will have 7 black boxes to do the work
 
 
 
