@@ -159,48 +159,20 @@ For discrete probability distributions :math:`p` and :math:`q`, we have
     H(p, q) = -\sum_x p(x)\log q(x)
 
 
-Hence, **the softmax loss function is**
+Hence, **the softmax loss function of RNN is**
 
 .. math::
 
-    H(y, x) = -\sum_i y_i\log\sigma(\vec{x})_i = -\sum_i y_i\log\frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_i}}
+    H(p, q) = -\sum_x p(x)\log \frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_i}}
 
 
 
+.. NOTE::
 
+    In the case of a recurrent neural network, we are essentially backpropagation through time, which means that we are
+    forwarding through entire sequence to compute losses, then backwarding through entire sequence to compute gradients.
+    This is why the loss function of RNN is in a summation form above.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.. math::
-
-    \mathcal{L}\left( p, q \right) = H(p, q) = -E_p\left[ \log\sigma(\vec{q})_i \right]
-
-
-In the case of a recurrent neural network, we are essentially backpropagation through time, which means that we are
-forwarding through entire sequence to compute losses, then backwarding through entire sequence to compute gradients.
-Formally, the `loss function`_ :math:`\mathcal{L}` of all time steps is defined as the sum of
-the loss at every time step:
-
-.. math::
-
-    \mathcal{L}\left( t, o \right) = -\sum_{t = 1}^{T_y}E_p\left[ \log\sigma(\vec{q})_i \right]
 
 However, this becomes problematic when we want to train a sequence that is very long. For example, if we were to train a
 a paragraph of words, we have to iterate through many layers before we can compute one simple gradient step. In
