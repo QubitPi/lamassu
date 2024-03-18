@@ -72,11 +72,11 @@ The other perceptron computes the output like 'e', 'l', 'l', 'o'. We call those 
     They are *activation functions* which are used to change the linear function in a perceptron to a non-linear
     function. Please refer to `MACHINE LEARNING by Mitchell, Thom M. (1997)`_ Paperback (page 96) for more details
 
-    A typical activation function is
+    A typical activation function is :math:`tanh`:
 
     .. math::
 
-        `tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}`
+        tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}
 
 *Training a RNN model is the same thing as searching for the optimal values for the following parameters of these two
 perceptrons*:
@@ -87,35 +87,19 @@ perceptrons*:
 4. :math:`b_h`
 5. :math:`b_y`
 
-
-
-
-
-
-
-
+To summarize, we have a RNN model defined by
 
 .. math::
 
     h_t = \tanh\left( W_{hh}h_{t - 1} + W_{xh}x_t \right)
 
+    y_t = W_{hy}h_t
+
 .. figure:: ../img/vanilla-rnn-mformula-1.png
     :align: center
 
-We base predictions on top of :math:`h_t` by using just another matrix projection on top of the hidden state. This is
-the simplest complete case in which we can wire up a neural network:
-
-.. math::
-
-    y_t = W_{hy}h_t
-
-
-Our target is to learn the following 3 weight matrices
-
 .. figure:: ../img/vanilla-rnn-mformula-2.png
     :align: center
-
-
 
 Initialization
 --------------
