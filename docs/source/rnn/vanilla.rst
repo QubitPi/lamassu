@@ -2,8 +2,43 @@
 Introduction to Recurrent Neural Networks (RNNs)
 ================================================
 
+.. admonition:: Prerequisite
+
+    This section requires familiarity of basic Artificial Neural Network concepts, which are drawn from *Chapter 4 -
+    Artificial Neural Networks* (p. 81) of `MACHINE LEARNING by Mitchell, Thom M. (1997)`_ Paperback. Please, if
+    possible, read the chapter beforehand and refer to it if something looks confusing in the discussion of this section
+
 .. contents:: Table of Contents
     :depth: 2
+
+We all heard of this buz word "LLM" (Large Language Model). But let's put that aside for just a second. Let's imagine
+a much simpler one called "character-level language model" where, for example, we input a prefix of a word such as
+"hell" and the model outputs a complete word "hello". That is, this language model predicts the next character of a
+character sequence
+
+This is like a Math function where we have
+
+.. math::
+
+    f("hell") = "hello"
+
+How do we obtain a function like this? One approach is have 4 black boxes, each of which takes a single character as
+input and calculates an output:
+
+.. figure:: ../img/rnn-4-black-boxes.png
+    :align: center
+
+But one might have noticed that if the 3rd function (box) produces :math:`f('l') = 'l'`, why would the 4th function
+(box), given the same input, outputs something different (`o`) than the 3rd function? That's a great catch. Maybe we
+should take the "**history**" into account. Instead of having :math:`f` depend on parameter, we now have it take 2
+parameters. 1: a character; 2: a number that summarizes the previous calculations:
+
+.. figure:: ../img/rnn-4-black-boxes-connected.png
+    :align: center
+
+
+we call "hell" in this case a **sequence**
+
 
 
 Mathematical Formulation
@@ -80,11 +115,7 @@ Common literature [#f1]_ [#f2]_ tends to initialize
 Training
 --------
 
-.. admonition:: Prerequisite
 
-    This section requires familiarity of basic Artificial Neural Network concepts, which are drawn from *Chapter 4 -
-    Artificial Neural Networks* (p. 81) of `MACHINE LEARNING by Mitchell, Thom M. (1997)`_ Paperback. Please, if
-    possible, read the chapter beforehand and refer to it if something looks confusing in the discussion of this section
 
 What is the Loss Function of RNN?
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -105,7 +136,8 @@ they can be interpreted as probabilities. Furthermore, the larger input componen
 probabilities.
 
 For a vector :math:`x` of :math:`K` real numbers, the the standard (unit) softmax function
-:math:`\sigma: \mathbb{R}^K \mapsto (0, 1)^K`, where :math:`K \ge 1` is defined by
+:math:`\sigma: \mathbb{R}^K \mapsto (0, 1)^K`, where :math:`K \ge 1` is
+`defined by <https://en.wikipedia.org/wiki/Softmax_function>`_:
 
 .. math::
 
@@ -122,7 +154,7 @@ discussion becomes
 
 .. math::
 
-    \vec{q}\left( \vec{x}) \right) = \left( \frac{e^{x_1}}{\sum_{j = 1}^Ke^{x_j}}, \frac{e^{x_2}}{\sum_{j = 1}^Ke^{x_j}}, ..., \frac{e^{x_K}}{\sum_{j = 1}^Ke^{x_j}} \right)
+    \vec{q}\left( \vec{x} \right) = \left( \frac{e^{x_1}}{\sum_{j = 1}^Ke^{x_j}}, \frac{e^{x_2}}{\sum_{j = 1}^Ke^{x_j}}, ..., \frac{e^{x_K}}{\sum_{j = 1}^Ke^{x_j}} \right)
 
 Cross-Entropy
 """""""""""""
@@ -165,13 +197,9 @@ For discrete probability distributions :math:`p` and :math:`q`, we have
 
     H(p, q) = -\sum_x p(\vec{x})\log q(\vec{x})
 
-Hence, **the softmax loss function of RNN is**
+This is our ** softmax loss function for RNN**
 
-.. math::
 
-    H(p, q) = -\sum_x p(x)\log\frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_j}} = H(y, p) = -\sum_i y_i\log p_i
-
-where :math:`p_i = \frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_j}}`
 
 .. NOTE::
 
