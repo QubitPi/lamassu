@@ -102,22 +102,6 @@ perceptrons*:
 4. :math:`b_h`
 5. :math:`b_y`
 
-To summarize, we have a RNN model defined by
-
-.. math::
-
-    h_t = \tanh\left( W_{hh}h_{t - 1} + W_{xh}x_t \right)
-
-.. math::
-
-    y_t = W_{hy}h_t
-
-.. figure:: ../img/vanilla-rnn-mformula-1.png
-    :align: center
-
-.. figure:: ../img/vanilla-rnn-mformula-2.png
-    :align: center
-
 Loss Function of RNN
 --------------------
 
@@ -126,14 +110,14 @@ network is through "specifying a measure for the training error". We call this m
 choice of loose function, which we will be using in Lamassu for RNN, is *softmax*. We are going to show that Softmax
 Loss is actually a *Softmax Activation* plus a *Cross-Entropy Loss*.
 
-The softmax function takes as input a vector :math:`x` of :math:`K` real numbers, and normalizes it into a probability
+The softmax function takes as input a vector :math:`z` of :math:`K` real numbers, and normalizes it into a probability
 distribution consisting of :math:`K` probabilities proportional to the exponentials of the input numbers. That is, prior
 to applying softmax, some vector components could be negative, or greater than one; and might not sum to 1; but after
 applying softmax, each component will be in the interval :math:`(0, 1)` and the components will add up to 1, so that
 they can be interpreted as probabilities. Furthermore, the larger input components will correspond to larger
 probabilities.
 
-For a vector :math:`x` of :math:`K` real numbers, the the standard (unit) softmax function
+For a vector :math:`z` of :math:`K` real numbers, the the standard (unit) softmax function
 :math:`\sigma: \mathbb{R}^K \mapsto (0, 1)^K`, where :math:`K \ge 1` is
 `defined by <https://en.wikipedia.org/wiki/Softmax_function>`_:
 
@@ -153,7 +137,7 @@ In the context of RNN,
 
     \sigma(\vec{o})_i = \frac{e^{o_i}}{\sum_{j = 1}^Ke^{o_j}}
 
-where :math:`o_i` is the output component by unit `i`
+where :math:`o_i` is the output by perceptron unit `i`.
 
 Cross-Entropy
 """""""""""""
