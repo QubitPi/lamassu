@@ -183,19 +183,7 @@ For discrete probability distributions :math:`p` and :math:`q`, we have
 
 .. math::
 
-    H(p, q) = -\sum_x p(\vec{x})\log q(\vec{x})
-
-Our **softmax loss function for RNN** thus is defined by
-
-.. math::
-
-    \mathcal{L} = -\sum_i y_i\log q_i
-
-.. NOTE::
-
-    In the case of a recurrent neural network, we are essentially backpropagation through time, which means that we are
-    forwarding through entire sequence to compute losses, then backwarding through entire sequence to compute gradients.
-    This is why the loss function of RNN is in a summation form above.
+    H(p, q) = -\sum_x p(x)\log q(x)
 
 Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
