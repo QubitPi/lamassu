@@ -185,6 +185,11 @@ For discrete probability distributions :math:`p` and :math:`q`, we have
 
     H(p, q) = -\sum_x p(x)\log q(x)
 
+
+.. math::
+
+    \mathcal{L} = -\sum_i t_i\log o_i
+
 Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
