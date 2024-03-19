@@ -93,6 +93,16 @@ The other perceptron computes the output like 'e', 'l', 'l', 'o'. We call those 
 
         tanh(x) = \frac{e^x - e^{-x}}{e^x + e^{-x}}
 
+    In practice, :math:`g_2` is constance so our model becomes
+
+    .. math::
+
+        h_t = tanh\left( W_{hh}h_{t - 1} + W_{xh}x_t + b_h \right)
+
+    .. math::
+
+        y_t = \left( W_{hy}h_t + b_y \right)
+
 *Training a RNN model is the same thing as searching for the optimal values for the following parameters of these two
 perceptrons*:
 
@@ -188,6 +198,11 @@ where
 
 - :math:`t` is the target sequence to predict and :math:`t_i` is the i-th element of the true sequence
 - :math:`o` is the predicted sequence by RNN and :math:`o_i` is the i-th element of the predicted sequence
+
+.. NOTE::
+
+    The definition of :math:`\mathcal{L}` above
+
 
 Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
