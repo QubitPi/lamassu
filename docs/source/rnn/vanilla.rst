@@ -135,7 +135,7 @@ In the context of RNN,
 
 .. math::
 
-    \sigma(\vec{o})_i = \frac{e^{o_i}}{\sum_{j = 1}^Ke^{o_j}}
+    \sigma(\vec{o})_i = \frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}}
 
 where :math:`o_i` is the output by perceptron unit `i`.
 
