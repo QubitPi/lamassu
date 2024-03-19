@@ -111,26 +111,26 @@ network is through "specifying a measure for the training error". We call this m
 choice of loose function, which we will be using in Lamassu for RNN, is *softmax*. We are going to show that Softmax
 Loss is actually a *Softmax Activation* plus a *Cross-Entropy Loss*.
 
-The softmax function takes as input a vector :math:`z` of :math:`K` real numbers, and normalizes it into a probability
-distribution consisting of :math:`K` probabilities proportional to the exponentials of the input numbers. That is, prior
-to applying softmax, some vector components could be negative, or greater than one; and might not sum to 1; but after
-applying softmax, each component will be in the interval :math:`(0, 1)` and the components will add up to 1, so that
-they can be interpreted as probabilities. Furthermore, the larger input components will correspond to larger
-probabilities.
+Softmax Function
+^^^^^^^^^^^^^^^^
 
-For a vector :math:`z` of :math:`K` real numbers, the the standard (unit) softmax function
-:math:`\sigma: \mathbb{R}^K \mapsto (0, 1)^K`, where :math:`K \ge 1` is
-`defined by <https://en.wikipedia.org/wiki/Softmax_function>`_:
+.. admonition:: Softmax Function by `Wikipedia <https://en.wikipedia.org/wiki/Softmax_function>`_
 
-.. math::
+    The softmax function takes as input a vector :math:`z` of :math:`K` real numbers, and normalizes it into a
+    probability distribution consisting of :math:`K` probabilities proportional to the exponentials of the input
+    numbers. That is, prior to applying softmax, some vector components could be negative, or greater than one; and
+    might not sum to 1; but after applying softmax, each component will be in the interval :math:`(0, 1)` and the
+    components will add up to 1, so that they can be interpreted as probabilities. Furthermore, the larger input
+    components will correspond to larger probabilities.
 
-    \sigma(\vec{z})_i = \frac{e^{z_i}}{\sum_{j = 1}^Ke^{z_j}}
+    For a vector :math:`z` of :math:`K` real numbers, the the standard (unit) softmax function
+    :math:`\sigma: \mathbb{R}^K \mapsto (0, 1)^K`, where :math:`K \ge 1` is defined by
 
-where :math:`i = 1, 2, ..., K` and :math:`\vec{x} = (x_1, x_2, ..., x_K) \in \mathbb{R}^K`
+    .. math::
 
-This property of softmax function that it outputs a probability distribution makes it suitable for probabilistic
-interpretation in classification tasks. Neural networks, however, are commonly trained under a log loss (or
-cross-entropy) regime
+        \sigma(\vec{z})_i = \frac{e^{z_i}}{\sum_{j = 1}^Ke^{z_j}}
+
+    where :math:`i = 1, 2, ..., K` and :math:`\vec{x} = (x_1, x_2, ..., x_K) \in \mathbb{R}^K`
 
 In the context of RNN,
 
@@ -144,6 +144,10 @@ where
 - :math:`o_i` is the output by perceptron unit `i`
 - :math:`i = 1, 2, ..., n`,
 - :math:`\vec{o} = (o_1, o_2, ..., o_n) \in \mathbb{R}^n`
+
+This property of softmax function that it outputs a probability distribution makes it suitable for probabilistic
+interpretation in classification tasks. Neural networks, however, are commonly trained under a log loss (or
+cross-entropy) regime
 
 Cross-Entropy
 """""""""""""
