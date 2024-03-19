@@ -51,7 +51,7 @@ we will have 7 black boxes to do the work. And what if the function :math:`f` is
 output everytime or we have a *more than one* sequence to predict? For that, we will repeatedly feed each sequence as
 training example until :math:`f` is trained smart enough and until all sequences are predicted:
 
-.. figure:: ../img/rnn-unfold.svg
+.. figure:: ../img/rnn-multi-sequences.png
     :align: center
     :width: 50%
 
