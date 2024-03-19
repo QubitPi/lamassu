@@ -103,15 +103,6 @@ The other perceptron computes the output like 'e', 'l', 'l', 'o'. We call those 
 
         y_t = \left( W_{hy}h_t + b_y \right)
 
-*Training a RNN model is the same thing as searching for the optimal values for the following parameters of these two
-perceptrons*:
-
-1. :math:`W_{xh}`
-2. :math:`W_{hh}`
-3. :math:`W_{yh}`
-4. :math:`b_h`
-5. :math:`b_y`
-
 Loss Function of RNN
 --------------------
 
@@ -219,7 +210,16 @@ Let's review what we have now, because we will be using all them to calculate th
 
 .. math::
 
-    \mathcal{L} = -\sum_i t_i\log\sigma(\vec{o})_i = -\sum_i t_i\log\frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}}
+    \mathcal{L} = -\sum_i t_i\log\sigma(\vec{y})_i = -\sum_i t_i\log\frac{e^{y_i}}{\sum_{j = 1}^ne^{y_j}}
+
+*Training a RNN model is the same thing as searching for the optimal values for the following parameters of these two
+perceptrons*:
+
+1. :math:`W_{xh}`
+2. :math:`W_{hh}`
+3. :math:`W_{yh}`
+4. :math:`b_h`
+5. :math:`b_y`
 
 
 .. rubric:: Footnotes
