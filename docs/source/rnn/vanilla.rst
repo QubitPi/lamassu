@@ -58,7 +58,7 @@ like "cat" and "hello".
 
 This is the idea behind RNN
 
-.. figure:: ../img/rnns.png
+.. figure:: ../img/rnn.png
     :align: center
     :width: 60%
 
