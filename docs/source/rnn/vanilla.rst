@@ -51,7 +51,6 @@ we will have 2 black boxes to do the work.
 
 .. figure:: ../img/rnn-multi-sequences.png
     :align: center
-    :width: 80%
 
 What if the function :math:`f` is not smart enough to produce the correct output everytime? We will simply collect a lot
 of examples such as "cat" and "hello", feed them into the boxes to train them until they can output correct vocabulary
