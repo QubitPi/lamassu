@@ -83,7 +83,7 @@ perceptrons*:
 
 1. :math:`W_{xh}`
 2. :math:`W_{hh}`
-3. :math:`W_{hy}`
+3. :math:`W_{yh}`
 4. :math:`b_h`
 5. :math:`b_y`
 
@@ -124,7 +124,7 @@ For a vector :math:`x` of :math:`K` real numbers, the the standard (unit) softma
 
 .. math::
 
-    \sigma(\vec{x})_i = \frac{e^{x_i}}{\sum_{j = 1}^Ke^{x_j}}
+    \sigma(\vec{z})_i = \frac{e^{z_i}}{\sum_{j = 1}^Ke^{z_j}}
 
 where :math:`i = 1, 2, ..., K` and :math:`\vec{x} = (x_1, x_2, ..., x_K) \in \mathbb{R}^K`
 
@@ -132,12 +132,13 @@ This property of softmax function that it outputs a probability distribution mak
 interpretation in classification tasks. Neural networks, however, are commonly trained under a log loss (or
 cross-entropy) regime
 
-For the ease of the following discussion, we denote :math:`\sigma` as :math:`q`. Hence our softmax function for the
-discussion becomes
+In the context of RNN,
 
 .. math::
 
-    \vec{q}\left( \vec{x} \right) = \left( \frac{e^{x_1}}{\sum_{j = 1}^Ke^{x_j}}, \frac{e^{x_2}}{\sum_{j = 1}^Ke^{x_j}}, ..., \frac{e^{x_K}}{\sum_{j = 1}^Ke^{x_j}} \right)
+    \sigma(\vec{o})_i = \frac{e^{o_i}}{\sum_{j = 1}^Ke^{o_j}}
+
+where :math:`o_i` is the output component by unit `i`
 
 Cross-Entropy
 """""""""""""
@@ -195,7 +196,11 @@ Our **softmax loss function for RNN** thus is defined by
 Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-We are going to take
+With respect to what should we take the derivative of :math:`\mathcal{L}`? Note that the loss function implies an
+"error surface" defined by the our weight matrix :math:`W` with 3 projections: :math:`W_{hh}`, :math:`W_{xh}`, and
+:math:`W_{yh}`.
+
+
 
 .. rubric:: Footnotes
 
