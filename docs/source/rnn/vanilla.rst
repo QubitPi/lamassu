@@ -207,10 +207,19 @@ where
 Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-With respect to what should we take the derivative of :math:`\mathcal{L}`? Note that the loss function implies an
-"error surface" defined by the our weight matrix :math:`W` with 3 projections: :math:`W_{hh}`, :math:`W_{xh}`, and
-:math:`W_{yh}`.
+Let's review what we have now, because we will be using all them to calculate the update rule:
 
+.. math::
+
+    h_t = tanh\left( W_{hh}h_{t - 1} + W_{xh}x_t + b_h \right)
+
+.. math::
+
+    y_t = \left( W_{hy}h_t + b_y \right)
+
+.. math::
+
+    \mathcal{L} = -\sum_i t_i\log\sigma(\vec{o})_i = -\sum_i t_i\log\frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}}
 
 
 .. rubric:: Footnotes
