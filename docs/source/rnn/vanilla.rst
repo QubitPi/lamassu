@@ -190,6 +190,11 @@ For discrete probability distributions :math:`p` and :math:`q`, we have
 
     \mathcal{L} = -\sum_i t_i\log o_i
 
+where
+
+- :math:`t` is the target sequence to predict and :math:`t_i` is the i-th element of the true sequence
+- :math:`o` is the predicted sequence by RNN and :math:`o_i` is the i-th element of the predicted sequence
+
 Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
