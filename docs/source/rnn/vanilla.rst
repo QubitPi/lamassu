@@ -58,7 +58,7 @@ like "cat" and "hello".
 
 This is the idea behind RNN
 
-# It's recurrent because the boxed function gets invoked repeatedly for each element of the sequence. In the case of our
+- It's recurrent because the boxed function gets invoked repeatedly for each element of the sequence. In the case of our
   character-level language model, element is a character such as "e" and sequence is a string like "hell"
 
 .. figure:: ../img/rnn.png
