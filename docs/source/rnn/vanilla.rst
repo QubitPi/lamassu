@@ -171,15 +171,8 @@ what the model believes the output distribution should be and what the original 
 
 Now we have an intuitive understanding of cross entropy, let's formally define it.
 
-The cross-entropy of the distribution :math:`q` relative to a distribution :math:`p` over a given set is defined as
-
-.. math::
-
-    H(p, q) = -E_p\left[ \log q \right]
-
-where :math:`E_p[]` is the expected value operator with respect to the distribution :math:`p`.
-
-For discrete probability distributions :math:`p` and :math:`q`, we have
+The cross-entropy of the discrete probability distribution :math:`q` relative to a distribution :math:`p` over a given
+set is defined as
 
 .. math::
 
