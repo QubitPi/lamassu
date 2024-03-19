@@ -47,7 +47,13 @@ Now it makes much more sense with:
     f('l', h3) = 'o'
 
 But what if we want to predict a longer word? For example, how about predicting "learning" by "learnin"? That's simple,
-we will have 7 black boxes to do the work
+we will have 7 black boxes to do the work. And what if the function :math:`f` is not smart enough to produce the correct
+output everytime or we have a *more than one* sequence to predict? For that, we will repeatedly feed each sequence as
+training example until :math:`f` is trained smart enough and until all sequences are predicted:
+
+.. figure:: ../img/rnn-unfold.svg
+    :align: center
+    :width: 50%
 
 This is the idea behind RNN. Each function :math:`f` is a network unit containing 2 perceptrons.
 
