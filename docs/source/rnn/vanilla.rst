@@ -58,9 +58,12 @@ like "cat" and "hello".
 
 This is the idea behind RNN
 
+# It's recurrent because the boxed function gets invoked repeatedly for each element of the sequence. In the case of our
+  character-level language model, element is a character such as "e" and sequence is a string like "hell"
+# We denote each
+
 .. figure:: ../img/rnn.png
     :align: center
-    :width: 60%
 
 Each function :math:`f` is a network unit containing 2 perceptrons.
 
