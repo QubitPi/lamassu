@@ -138,6 +138,8 @@ In the context of RNN,
 
     \sigma(\vec{o})_i = \frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}}
 
+We are going to
+
 where
 
 - :math:`n` is the length of a sequence feed into the RNN
