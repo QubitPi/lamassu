@@ -137,7 +137,8 @@ In the context of RNN,
 
     \sigma(\vec{o})_i = \frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}}
 
-where :math:`o_i` is the output by perceptron unit `i`.
+where :math:`o_i` is the output by perceptron unit `i`, :math:`i = 1, 2, ..., n`,
+:math:`\vec{o} = (o_1, o_2, ..., o_n) \in \mathbb{R}^n` and n is the length of a sequence feed into the RNN
 
 Cross-Entropy
 """""""""""""
