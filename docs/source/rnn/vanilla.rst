@@ -60,14 +60,13 @@ This is the idea behind RNN
 
 # It's recurrent because the boxed function gets invoked repeatedly for each element of the sequence. In the case of our
   character-level language model, element is a character such as "e" and sequence is a string like "hell"
-# We denote each
 
 .. figure:: ../img/rnn.png
     :align: center
 
 Each function :math:`f` is a network unit containing 2 perceptrons.
 
-One perceptron computes the "history" like :math:`h1`, :math:`h2`, :math:`h3`. Its formula is very similar to
+One perceptron computes the "history" like :math:`h_1`, :math:`h_2`, :math:`h_3`. Its formula is very similar to
 that of perceptron:
 
 .. math::
