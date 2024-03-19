@@ -185,10 +185,11 @@ For discrete probability distributions :math:`p` and :math:`q`, we have
 
     H(p, q) = -\sum_x p(x)\log q(x)
 
+In RNN, the probability distribution of :math:`q(x)` is exactly the softmax function we defined earlier:
 
 .. math::
 
-    \mathcal{L} = -\sum_i t_i\log o_i
+    \mathcal{L} = -\sum_i t_i\log\sigma(\vec{o})_i = -\sum_i t_i\log\frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}}
 
 where
 
