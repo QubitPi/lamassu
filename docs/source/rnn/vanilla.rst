@@ -57,7 +57,13 @@ What if the function :math:`f` is not smart enough to produce the correct output
 of examples such as "cat" and "hello", feed them into the boxes to train them until they can output correct vocabulary
 like "cat" and "hello".
 
-This is the idea behind RNN. Each function :math:`f` is a network unit containing 2 perceptrons.
+This is the idea behind RNN
+
+.. figure:: ../img/rnns.png
+    :align: center
+    :width: 60%
+
+Each function :math:`f` is a network unit containing 2 perceptrons.
 
 One perceptron computes the "history" like :math:`h1`, :math:`h2`, :math:`h3`. Its formula is very similar to
 that of perceptron:
