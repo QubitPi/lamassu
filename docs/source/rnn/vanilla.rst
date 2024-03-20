@@ -306,7 +306,7 @@ Taking the `Chain Rule <https://en.wikipedia.org/wiki/Chain_rule>`_ of
 
 .. math::
 
-    \frac{\partial \mathcal{L}}{W_{yh}} = \sum_i^n\frac{\partial \mathcal{L}}{\partial \sigma_i}\frac{\partial \sigma_i}{\partial o_i}\frac{\partial o_i}{W_{yh}} = \sum_i^n\frac{\partial \mathcal{L}}{\partial o_i}\frac{\partial o_i}{W_{yh}}
+    \frac{\partial \mathcal{L}}{W_{yh}} = \sum_i^n\frac{\partial \mathcal{L}}{\partial o_i}\frac{\partial o_i}{W_{yh}}
 
 Since :math:`o_i = \left( W_{yh}h_i + b_o \right)`,
 
@@ -324,7 +324,7 @@ Applying the chain rule again, since :math:`\sigma_i` is a function of :math:`o_
 
 .. math::
 
-    -\sum_i^np(i)\frac{\partial \log\sigma_i}{\partial o_i} = -\sum_i^np(i)\frac{1}{\sigma_i}\frac{\partial\sigma_i}{o_i}
+    -\sum_i^np(i)\frac{\partial \log\sigma_i}{\partial o_i} = -\sum_i^np(i)\frac{1}{\sigma_i}\frac{\partial\sigma_i}{\partial o_i}
 
 Recall we have already derived that
 
