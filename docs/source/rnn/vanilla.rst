@@ -182,13 +182,13 @@ In our case, we have
 .. math::
 
     f'(o_k) = \frac{\partial}{\partial o_k} e^{o_i} = \begin{cases}
-                                                          e^(o_k), & \text{if}\ i = k \\
+                                                          e^{o_k}, & \text{if}\ i = k \\
                                                           0,       & \text{otherwise}
                                                       \end{cases}
 
 .. math::
 
-    g'(o_k) = \frac{\partial}{\partial o_k} \sum_{j = 1}^ne^{o_j} = e^(o_k)
+    g'(o_k) = \frac{\partial}{\partial o_k} \sum_{j = 1}^ne^{o_j} = e^{o_k}
 
 The rest of it becomes trivial then. When :math:`i = k`,
 
