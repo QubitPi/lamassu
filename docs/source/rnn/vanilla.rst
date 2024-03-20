@@ -305,7 +305,7 @@ weight updat rule by *taking partial derivatives with respect to all of the vari
 
 .. math::
 
-    \frac{\partial \mathcal{L}}{W_{yh}} = \frac{\partial}{W_{yh}} -\sum_i^n p(i)\log\sigma(\vec{o})_i
+    \frac{\partial \mathcal{L}}{W_{yh}} = -\frac{\partial}{W_{yh}}\sum_i^n p(i)\log\sigma(\vec{o})_i
 
 where n is the number of timesteps (or the length of a sequence such as "hell")
 
@@ -314,7 +314,7 @@ Taking the `Chain Rule <https://en.wikipedia.org/wiki/Chain_rule>`_ of
 
 .. math::
 
-    \frac{\partial}{W_{yh}} -\sum_i^n p(i)\log\sigma(\vec{o})_i =
+    -\frac{\partial}{W_{yh}} \sum_i^n p(i)\log\sigma(\vec{o})_i = \sum_i^n\frac{\partial \mathcal{L}}{\partial \sigma_i}\frac{\partial \sigma_i}{\partial o_i}\frac{\partial o_i}{W_{yh}}
 
 
 .. rubric:: Footnotes
