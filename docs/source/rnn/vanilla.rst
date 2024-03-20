@@ -365,9 +365,11 @@ Observing that
 
 .. math::
 
-    -p(i)(1 - \sigma_i) + \sum_{i \ne j}^np(j)\sigma_i = -p(i) + p(i)\sigma_i + \sum_{i \ne j}^np(j)\sigma_i = \sigma_i - p(i) = \frac{\partial \mathcal{L}}{\partial o_i}
+    -p(i)(1 - \sigma_i) + \sum_{i \ne j}^np(j)\sigma_i = -p(i) + p(i)\sigma_i + \sum_{i \ne j}^np(j)\sigma_i = \sigma_i - p(i)
 
+.. math::
 
+    \frac{\partial \mathcal{L}}{W_{yh}} = \sum_i^n\left( \sigma_i - p(i) \right) h_i
 
 .. rubric:: Footnotes
 
