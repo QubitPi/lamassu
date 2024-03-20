@@ -314,7 +314,7 @@ Taking the `Chain Rule <https://en.wikipedia.org/wiki/Chain_rule>`_ of
 
 .. math::
 
-    \frac{\partial \mathcal{L}}{W_{yh}} = \sum_i^n\frac{\partial \mathcal{L}}{\partial \sigma_i}\frac{\partial \sigma_i}{\partial o_i}\frac{\partial o_i}{W_{yh}}
+    \frac{\partial \mathcal{L}}{W_{yh}} = \sum_i^n\frac{\partial \mathcal{L}}{\partial \sigma_i}\frac{\partial \sigma_i}{\partial o_i}\frac{\partial o_i}{W_{yh}} = \sum_i^n\frac{\partial \mathcal{L}}{\partial o_i}\frac{\partial o_i}{W_{yh}}
 
 
 .. rubric:: Footnotes
