@@ -164,6 +164,14 @@ Therefore, we cannot just ask for "the derivative of softmax"; We should instead
 1. Which component (output element) of softmax we're seeking to find the derivative of.
 2. Since softmax has multiple inputs, with respect to which input element the partial derivative is computed.
 
+What we're looking for is the partial derivatives of
+
+.. math::
+
+    \frac{\partial \sigma_i}{o_i}
+
+
+
 
 Cross-Entropy
 """""""""""""
