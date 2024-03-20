@@ -150,7 +150,7 @@ with real values in the range (0, 1) that add up to 1.0. It maps :math:`\mathbb{
 
 .. math::
 
-     \sigma(\vec{o}): \begin{pmatrix}x_1\\x_2\\\dots\\x_n\end{pmatrix} \rightarrow \begin{pmatrix}\sigma_1\\\sigma_2\\\dots\\\sigma_n\end{pmatrix}
+     \sigma(\vec{o}): \begin{pmatrix}o_1\\o_2\\\dots\\o_n\end{pmatrix} \rightarrow \begin{pmatrix}\sigma_1\\\sigma_2\\\dots\\\sigma_n\end{pmatrix}
 
 This property of softmax function that it outputs a probability distribution makes it suitable for probabilistic
 interpretation in classification tasks. Neural networks, however, are commonly trained under a log loss (or
@@ -263,11 +263,6 @@ where
 
 - :math:`t` is the target sequence to predict and :math:`t_i` is the i-th element of the true sequence
 - :math:`o` is the predicted sequence by RNN and :math:`o_i` is the i-th element of the predicted sequence
-
-.. NOTE::
-
-    The definition of :math:`\mathcal{L}` above
-
 
 Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
