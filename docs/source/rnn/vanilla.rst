@@ -257,7 +257,7 @@ In RNN, the probability distribution of :math:`q(x)` is exactly the softmax func
 
 .. math::
 
-    \mathcal{L} = -\sum_i t_i\log\sigma(o)_i = -\sum_i t_i\log\frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}}
+    \mathcal{L} = -\sum_i t_i\log\sigma_i
 
 where
 
