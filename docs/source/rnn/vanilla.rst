@@ -146,11 +146,11 @@ where
 - :math:`\vec{o} = (o_1, o_2, ..., o_n) \in \mathbb{R}^n`
 
 The softmax function takes an N-dimensional vector of arbitrary real values and produces another N-dimensional vector
-with real values in the range (0, 1) that add up to 1.0. It maps:
+with real values in the range (0, 1) that add up to 1.0. It maps :math:`\mathbb{R} \rightarrow \mathbb{R}`
 
 .. math::
 
-     \sigma(\vec{o}): \begin{pmatrix} x_1\\x_2\\\dots\\x_n\end{pmatrix}
+     \sigma(\vec{o}): \begin{pmatrix} x_1\\x_2\\\dots\\x_n\end{pmatrix} \rightarrow \begin{pmatrix} \sigma_1\\\sigma_2\\\dots\\\sigma_n\end{pmatrix}
 
 This property of softmax function that it outputs a probability distribution makes it suitable for probabilistic
 interpretation in classification tasks. Neural networks, however, are commonly trained under a log loss (or
