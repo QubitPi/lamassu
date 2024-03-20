@@ -168,7 +168,7 @@ What we're looking for is the partial derivatives of
 
 .. math::
 
-    \frac{\partial \sigma_i}{\partial o_i} =
+    \frac{\partial \sigma_i}{\partial o_k} = \frac{\partial }{\partial o_k} \frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}}
 
 
 
