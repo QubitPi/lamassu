@@ -274,6 +274,7 @@ where
 
     .. figure:: ../img/char-level-language-model.png
         :align: center
+        :width: 60%
 
     The 4 probability distributions of :math:`q(x)` is "reflected" in the **output layer** of this example. They are
     :math:`o` values and have not been transformed to the :math:`\sigma` distribution yet. But in this case, we are 100%
@@ -283,24 +284,10 @@ where
 
         \begin{pmatrix}0\\1\\0\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\\0\end{pmatrix}, \begin{pmatrix}0\\0\\0\\1\end{pmatrix}
 
-    respectively
+    respectively. *That is all we need for training RNN*
 
 Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-Let's review what we have now, because we will be using all them to calculate the update rule:
-
-.. math::
-
-    h_t = tanh\left( W_{hh}h_{t - 1} + W_{xh}x_t + b_h \right)
-
-.. math::
-
-    y_t = \left( W_{hy}h_t + b_y \right)
-
-.. math::
-
-    \mathcal{L} = -\sum_i t_i\log\sigma_i
 
 *Training a RNN model is the same thing as searching for the optimal values for the following parameters of these two
 perceptrons*:
@@ -310,6 +297,8 @@ perceptrons*:
 3. :math:`W_{yh}`
 4. :math:`b_h`
 5. :math:`b_y`
+
+
 
 
 .. rubric:: Footnotes
