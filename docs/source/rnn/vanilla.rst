@@ -318,12 +318,14 @@ Since :math:`o_i = \left( W_{yh}h_i + b_o \right)`,
 
 .. math::
 
-    \frac{\partial \mathcal{L}}{\partial o_i} = = -\frac{\partial}{o_i}\sum_i^np(i)\log\sigma(\vec{o})_i = -\sum_i^n\frac{\partial}{o_i}p(i)\log\sigma(\vec{o})_i
+    \frac{\partial \mathcal{L}}{\partial o_i} = = -\frac{\partial}{\partial o_i}\sum_i^np(i)\log\sigma(\vec{o})_i = -\sum_i^n\frac{\partial}{\partial o_i}p(i)\log\sigma(\vec{o})_i
 
 where n is the number of timesteps (or the length of a sequence such as "hell")
 
-Taking the `Product Rule <https://en.wikipedia.org/wiki/Chain_rule>`_ of
-:math:`\frac{d}{dx}(u \dot v) = \frac{du}{dx} \dot v + u \dot \frac{dv}{dx}`,
+Taking the `Product Rule <https://en.wikipedia.org/wiki/Product_rule>`_ of
+:math:`\frac{d}{dx}(u \dot v) = \frac{du}{dx} \dot v + u \dot \frac{dv}{dx}`:
+
+
 
 .. rubric:: Footnotes
 
