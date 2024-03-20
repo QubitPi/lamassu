@@ -156,6 +156,15 @@ This property of softmax function that it outputs a probability distribution mak
 interpretation in classification tasks. Neural networks, however, are commonly trained under a log loss (or
 cross-entropy) regime
 
+We are going to compute the derivative of the softmax function because we will be using it for training our RNN model
+shortly. But before diving in, it is important to keep in mind that Softmax is fundamentally a vector function. It takes
+a vector as input and produces a vector as output; in other words, it has multiple inputs and multiple outputs.
+Therefore, we cannot just ask for "the derivative of softmax"; We should instead specify:
+
+1. Which component (output element) of softmax we're seeking to find the derivative of.
+2. Since softmax has multiple inputs, with respect to which input element the partial derivative is computed.
+
+
 Cross-Entropy
 """""""""""""
 
