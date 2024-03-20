@@ -338,19 +338,19 @@ Therefore:
 
 where n is the number of timesteps (or the length of a sequence such as "hell")
 
-Applying the chain rule again, since :math:`\sigma_i` is a function of :math:`o_i`:
+Applying the chain rule again:
 
 .. math::
 
-    -\sum_i^np(i)\frac{\partial \log\sigma_i}{\partial o_i} = -\sum_i^np(i)\frac{1}{\sigma_i}\frac{\partial\sigma_i}{\partial o_i}
+    -\sum_i^np(j)\frac{\partial \log\sigma_j}{\partial o_i} = -\sum_i^np(j)\frac{1}{\sigma_j}\frac{\partial\sigma_j}{\partial o_i}
 
 Recall we have already derived that
 
 .. math::
 
-    \frac{\partial \sigma_i}{\partial o_k} = \begin{cases}
-                                                 \sigma_i \left( 1 - \sigma_i \right), & \text{if}\ i = k \\
-                                                 -\sigma_i\sigma_k,                    & \text{otherwise}
+    \frac{\partial \sigma_i}{\partial o_j} = \begin{cases}
+                                                 \sigma_i \left( 1 - \sigma_i \right), & \text{if}\ i = j \\
+                                                 -\sigma_i\sigma_j,                    & \text{otherwise}
                                              \end{cases}
 
 
