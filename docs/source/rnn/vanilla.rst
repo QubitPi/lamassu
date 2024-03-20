@@ -171,7 +171,8 @@ What we're looking for is the partial derivatives of
     \frac{\partial \sigma_i}{\partial o_k} = \frac{\partial }{\partial o_k} \frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}}
 
 We'll be using the quotient rule of derivatives. For :math:`h(x) = \frac{f(x)}{g(x)}` where both :math:`f` and :math:`g`
-are differentiable and :math:`g(x) \ne 0`, The quotient rule states that the derivative of :math:`h(x)` is
+are differentiable and :math:`g(x) \ne 0`, The `quotient rule <https://en.wikipedia.org/wiki/Quotient_rule>`_ states
+that the derivative of :math:`h(x)` is
 
 .. math::
 
