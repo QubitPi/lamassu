@@ -257,12 +257,15 @@ In RNN, the probability distribution of :math:`q(x)` is exactly the softmax func
 
 .. math::
 
-    \mathcal{L} = -\sum_i t_i\log\sigma_i
+    \mathcal{L} = -\sum_i p(i)\log\sigma(\vec{o})_i
 
 where
 
 - :math:`t` is the target sequence to predict and :math:`t_i` is the i-th element of the true sequence
 - :math:`o` is the predicted sequence by RNN and :math:`o_i` is the i-th element of the predicted sequence
+
+In practice such as Machine Learning, :math:`p(x)` or :math:`p(i)` is deterministic in the form of a vector.
+
 
 Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
