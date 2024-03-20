@@ -377,7 +377,7 @@ Observing that
 
 .. math::
 
-    \frac{\partial \mathcal{L}}{b_y} = \sum_i^n\frac{\partial \mathcal{L}}{\partial o_i}\frac{\partial o_i}{b_y} = \sum_i^n\left[ \sigma_i - p(i) \right] \times 1 = \sum_i^n\left[ \sigma_i - p(i) \right]
+    \frac{\partial \mathcal{L}}{b_y} = \sum_i^n\frac{\partial \mathcal{L}}{\partial o_i}\frac{\partial o_i}{b_y} = \sum_i^n\left[ \sigma_i - p(i) \right] \times 1
 
 .. math::
 
