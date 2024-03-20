@@ -322,6 +322,9 @@ Since :math:`o_i = \left( W_{yh}h_i + b_o \right)`,
 
 where n is the number of timesteps (or the length of a sequence such as "hell")
 
+Taking the `Product Rule <https://en.wikipedia.org/wiki/Chain_rule>`_ of
+:math:`\frac{d}{dx}(u \dot v) = \frac{du}{dx} \dot v + u \dot \frac{dv}{dx}`,
+
 .. rubric:: Footnotes
 
 .. _`exploding gradient`: https://qubitpi.github.io/stanford-cs231n.github.io/rnn/#vanilla-rnn-gradient-flow--vanishing-gradient-problem
