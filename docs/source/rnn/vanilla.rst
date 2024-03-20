@@ -168,7 +168,7 @@ What we're looking for is the partial derivatives of
 
 .. math::
 
-    \frac{\partial \sigma_i}{o_i}
+    \frac{\partial \sigma_i}{\partial o_i} =
 
 
 
