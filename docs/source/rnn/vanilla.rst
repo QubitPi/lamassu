@@ -146,7 +146,7 @@ where
 - :math:`\vec{o} = (o_1, o_2, ..., o_n) \in \mathbb{R}^n`
 
 The softmax function takes an N-dimensional vector of arbitrary real values and produces another N-dimensional vector
-with real values in the range (0, 1) that add up to 1.0. It maps :math:`\mathbb{R} \rightarrow \mathbb{R}`
+with real values in the range (0, 1) that add up to 1.0. It maps :math:`\mathbb{R}^N \rightarrow \mathbb{R}^N`
 
 .. math::
 
@@ -177,6 +177,18 @@ are differentiable and :math:`g(x) \ne 0`, The quotient rule states that the der
 
     h'(x) = \frac{f'(x)g(x) - f(x)g'(x)}{g^2(x)}
 
+In our case, we have
+
+.. math::
+
+    f'(o_k) = \frac{\partial}{\partial o_k} e^{o_i} = \begin{cases}
+                                                          e^(o_k), & \text{if}\ i = k \\
+                                                          0,       & \text{otherwise}
+                                                      \end{cases}
+
+.. math::
+
+    g'(o_k) = \frac{\partial}{\partial o_k} \sum_{j = 1}^ne^{o_j} = e^(o_k)
 
 Cross-Entropy
 """""""""""""
