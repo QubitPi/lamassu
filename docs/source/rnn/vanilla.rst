@@ -300,10 +300,12 @@ perceptrons*:
 5. :math:`b_y`
 
 By the Gradient Descent discussed in `MACHINE LEARNING by Mitchell, Thom M. (1997)`_ tells us we should derive the
-weight updat rule by *taking partial derivatives with respect to all of the variables above*.
+weight updat rule by *taking partial derivatives with respect to all of the variables above*. Let's start with
+:math:`W_{yh}`
 
+.. math::
 
-
+    \frac{\partial \mathcal{L}}{W_{yh}} = \frac{\partial}{W_{yh}} -\sum_i p(i)\log\sigma(\vec{o})_i
 
 
 .. rubric:: Footnotes
