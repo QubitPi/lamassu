@@ -355,7 +355,7 @@ Recall we have already derived that
 
 .. math::
 
-    -\sum_j^np(j)\frac{1}{\sigma_j}\frac{\partial\sigma_j}{\partial o_i} = -\sum_{i = j}^np(j)\frac{1}{\sigma_j}\frac{\partial\sigma_j}{\partial o_i} -\sum_{i \ne j}^np(j)\frac{1}{\sigma_j}\frac{\partial\sigma_j}{\partial o_i} = p(i)(1 - \sigma_i) + \sum_{i \ne j}^np(j)\sigma_i
+    -\sum_j^np(j)\frac{1}{\sigma_j}\frac{\partial\sigma_j}{\partial o_i} = -\sum_{i = j}^np(j)\frac{1}{\sigma_j}\frac{\partial\sigma_j}{\partial o_i} -\sum_{i \ne j}^np(j)\frac{1}{\sigma_j}\frac{\partial\sigma_j}{\partial o_i} = -p(i)(1 - \sigma_i) + \sum_{i \ne j}^np(j)\sigma_i
 
 Observing that
 
@@ -365,7 +365,7 @@ Observing that
 
 .. math::
 
-    p(i)(1 - \sigma_i) + \sum_{i \ne j}^np(j)\sigma_i = p(i) - p(i)\sigma_i + \sum_{i \ne j}^np(j)\sigma_i =
+    -p(i)(1 - \sigma_i) + \sum_{i \ne j}^np(j)\sigma_i = -p(i) + p(i)\sigma_i + \sum_{i \ne j}^np(j)\sigma_i =
 
 .. rubric:: Footnotes
 
