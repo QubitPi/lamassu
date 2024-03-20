@@ -334,15 +334,15 @@ Therefore:
 
 .. math::
 
-    \frac{\partial \mathcal{L}}{\partial o_i} = -\frac{\partial}{\partial o_i}\sum_j^np(j)\log\sigma_j = -\sum_j^n\frac{\partial}{\partial o_i}p(j)\log\sigma_j = -\sum_i^np(j)\frac{\partial \log\sigma_j}{\partial o_i}
+    \frac{\partial \mathcal{L}}{\partial o_i} = -\frac{\partial}{\partial o_i}\sum_j^np(j)\log\sigma_j = -\sum_j^n\frac{\partial}{\partial o_i}p(j)\log\sigma_j = -\sum_j^np(j)\frac{\partial \log\sigma_j}{\partial o_i}
 
-where n is the number of timesteps (or the length of a sequence such as "hell")
+where :math:`n` is the number of timesteps (or the length of a sequence such as "hell")
 
 Applying the chain rule again:
 
 .. math::
 
-    -\sum_i^np(j)\frac{\partial \log\sigma_j}{\partial o_i} = -\sum_i^np(j)\frac{1}{\sigma_j}\frac{\partial\sigma_j}{\partial o_i}
+    -\sum_j^np(j)\frac{\partial \log\sigma_j}{\partial o_i} = -\sum_j^np(j)\frac{1}{\sigma_j}\frac{\partial\sigma_j}{\partial o_i}
 
 Recall we have already derived that
 
@@ -352,6 +352,7 @@ Recall we have already derived that
                                                  \sigma_i \left( 1 - \sigma_i \right), & \text{if}\ i = j \\
                                                  -\sigma_i\sigma_j,                    & \text{otherwise}
                                              \end{cases}
+
 
 
 .. rubric:: Footnotes
