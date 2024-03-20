@@ -207,6 +207,17 @@ When :math:`i \ne k`
 
     \frac{\partial \sigma_i}{\partial o_k} = \frac{-e^{o_k} e^{o_i}}{\left( \sum_{j = 1}^ne^{o_j} \right)^2} = -\sigma_i\sigma_k
 
+This concludes the derivative of the softmax function:
+
+.. math::
+
+.. math::
+
+    \frac{\partial \sigma_i}{\partial o_k} = \begin{cases}
+                                                 \sigma_i \left( 1 - \sigma_i \right), & \text{if}\ i = k \\
+                                                 -\sigma_i\sigma_k,                    & \text{otherwise}
+                                             \end{cases}
+
 Cross-Entropy
 """""""""""""
 
