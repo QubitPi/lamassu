@@ -353,7 +353,9 @@ Recall we have already derived that
                                                  -\sigma_i\sigma_j,                    & \text{otherwise}
                                              \end{cases}
 
+.. math::
 
+    -\sum_j^np(j)\frac{1}{\sigma_j}\frac{\partial\sigma_j}{\partial o_i} = -\sum_{i = j}^np(j)\frac{1}{\sigma_j}\frac{\partial\sigma_j}{\partial o_i} -\sum_{i \ne j}^np(j)\frac{1}{\sigma_j}\frac{\partial\sigma_j}{\partial o_i}
 
 .. rubric:: Footnotes
 
