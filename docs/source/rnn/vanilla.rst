@@ -80,7 +80,7 @@ The other perceptron computes the output like 'e', 'l', 'l', 'o'. We call those 
 
 .. math::
 
-    y_t = g_2\left( W_{hy}h_t + b_y \right)
+    o_t = g_2\left( W_{hy}h_t + b_o \right)
 
 .. admonition:: What are :math:`g_1` and :math:`g_2`?
 
@@ -101,7 +101,7 @@ The other perceptron computes the output like 'e', 'l', 'l', 'o'. We call those 
 
     .. math::
 
-        y_t = \left( W_{hy}h_t + b_y \right)
+        o_t = \left( W_{hy}h_t + b_o \right)
 
 Loss Function of RNN
 --------------------
@@ -264,8 +264,26 @@ where
 - :math:`t` is the target sequence to predict and :math:`t_i` is the i-th element of the true sequence
 - :math:`o` is the predicted sequence by RNN and :math:`o_i` is the i-th element of the predicted sequence
 
-In practice such as Machine Learning, :math:`p(x)` or :math:`p(i)` is deterministic in the form of a vector.
+.. admonition:: What is the Mathematical form of :math:`p(i)` in RNN?
 
+    By definition, :math:`p(i)` is the *true* distribution whose exact functional form is unknown. In the language of
+    Approximation Theory, :math:`p(i)` is the function that RNN is trying to learn or approximate mathematically.
+
+    Although the :math:`p(i)` makes \mathcal{L} unknown, computationally :math:`p(i)` is perfectly defined in each
+    training example. Taking our "hello" example:
+
+    .. figure:: ../img/char-level-language-model.png
+        :align: center
+
+    The 4 probability distributions of :math:`q(x)` is "reflected" in the **output layer** of this example. They are
+    :math:`o` values and have not been transformed to the :math:`\sigma` distribution yet. But in this case, we are 100%
+    sure that the true probability distribution :math:`p(i)` for the 4 outputs are
+
+    .. math::
+
+        \begin{pmatrix}0\\1\\0\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\\0\end{pmatrix}, \begin{pmatrix}0\\0\\0\\1\end{pmatrix}
+
+    respectively
 
 Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
