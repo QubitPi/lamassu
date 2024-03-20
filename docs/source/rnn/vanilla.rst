@@ -318,14 +318,15 @@ Since :math:`o_i = \left( W_{yh}h_i + b_o \right)`,
 
 .. math::
 
-    \frac{\partial \mathcal{L}}{\partial o_i} = = -\frac{\partial}{\partial o_i}\sum_i^np(i)\log\sigma(\vec{o})_i = -\sum_i^n\frac{\partial}{\partial o_i}p(i)\log\sigma(\vec{o})_i = -\sum_i^np(i)\frac{\partial \log\sigma(\vec{o})_i}{\partial o_i}
+    \frac{\partial \mathcal{L}}{\partial o_i} = -\frac{\partial}{\partial o_i}\sum_i^np(i)\log\sigma_i = -\sum_i^n\frac{\partial}{\partial o_i}p(i)\log\sigma_i = -\sum_i^np(i)\frac{\partial \log\sigma_i}{\partial o_i}
 
 where n is the number of timesteps (or the length of a sequence such as "hell")
 
-Taking the `Product Rule <https://en.wikipedia.org/wiki/Product_rule>`_ of
-:math:`\frac{d}{dx}(u \dot v) = \frac{du}{dx} \dot v + u \dot \frac{dv}{dx}`:
+Applying the chain rule again, since :math:`\sigma_i` is a function of :math:`o_i`:
 
+.. math::
 
+    -\sum_i^np(i)\frac{\partial \log\sigma_i}{\partial o_i} = -\sum_i^np(i)\frac{1}{\sigma_i}\frac{\partial\sigma_i}{o_i}
 
 
 .. rubric:: Footnotes
