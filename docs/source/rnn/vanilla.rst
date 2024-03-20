@@ -170,6 +170,10 @@ What we're looking for is the partial derivatives of
 
     \frac{\partial \sigma_i}{\partial o_k} = \frac{\partial }{\partial o_k} \frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}}
 
+
+:math:`\frac{\partial \sigma_i}{\partial o_k} ` **is the partial derivative of the i-th output with respect with the
+k-th input**.
+
 We'll be using the quotient rule of derivatives. For :math:`h(x) = \frac{f(x)}{g(x)}` where both :math:`f` and :math:`g`
 are differentiable and :math:`g(x) \ne 0`, The `quotient rule <https://en.wikipedia.org/wiki/Quotient_rule>`_ states
 that the derivative of :math:`h(x)` is
@@ -314,9 +318,23 @@ Since :math:`o_i = \left( W_{yh}h_i + b_o \right)`,
 
     \frac{\partial o_i}{W_{yh}} = \frac{\partial }{W_{yh}}\left( W_{yh}h_i + b_o \right) = h_i
 
+For the :math:`\frac{\partial \mathcal{L}}{\partial o_i}` we shall recall from the earlier discussion on softmax
+derivative that we cannot simply have
+
 .. math::
 
-    \frac{\partial \mathcal{L}}{\partial o_i} = -\frac{\partial}{\partial o_i}\sum_i^np(i)\log\sigma_i = -\sum_i^n\frac{\partial}{\partial o_i}p(i)\log\sigma_i = -\sum_i^np(i)\frac{\partial \log\sigma_i}{\partial o_i}
+    \frac{\partial \mathcal{L}}{\partial o_i} = -\frac{\partial}{\partial o_i}\sum_i^np(i)\log\sigma_i
+
+because we need to
+
+1. specify which component (output element) we're seeking to find the derivative of
+2. with respect to which input element the partial derivative is computed
+
+Therefore:
+
+.. math::
+
+    \frac{\partial \mathcal{L}}{\partial o_i} = -\frac{\partial}{\partial o_i}\sum_j^np(j)\log\sigma_j = -\sum_j^n\frac{\partial}{\partial o_i}p(j)\log\sigma_j = -\sum_i^np(j)\frac{\partial \log\sigma_j}{\partial o_i}
 
 where n is the number of timesteps (or the length of a sequence such as "hell")
 
