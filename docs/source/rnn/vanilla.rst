@@ -285,7 +285,7 @@ where
 
         \begin{pmatrix}0\\1\\0\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\\0\end{pmatrix}, \begin{pmatrix}0\\0\\0\\1\end{pmatrix}
 
-    respectively. *That is all we need for calculating the :math:`\mathcal{L}`*
+    respectively. *That is all we need for calculating the* :math:`\mathcal{L}`
 
 Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
