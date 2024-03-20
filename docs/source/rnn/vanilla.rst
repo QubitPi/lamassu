@@ -80,7 +80,7 @@ The other perceptron computes the output like 'e', 'l', 'l', 'o'. We call those 
 
 .. math::
 
-    o_i = g_2\left( W_{yh}h_i + b_o \right)
+    o_i = g_2\left( W_{yh}h_i + b_y \right)
 
 .. admonition:: What are :math:`g_1` and :math:`g_2`?
 
@@ -101,7 +101,7 @@ The other perceptron computes the output like 'e', 'l', 'l', 'o'. We call those 
 
     .. math::
 
-        o_i = \left( W_{yh}h_i + b_o \right)
+        o_i = \left( W_{yh}h_i + b_y \right)
 
 Loss Function of RNN
 --------------------
@@ -299,7 +299,7 @@ perceptrons*:
 2. :math:`W_{hh}`
 3. :math:`W_{yh}`
 4. :math:`b_h`
-5. :math:`b_y`
+5. :math:`b_0`
 
 By the Gradient Descent discussed in `MACHINE LEARNING by Mitchell, Thom M. (1997)`_ tells us we should derive the
 weight updat rule by *taking partial derivatives with respect to all of the variables above*. Let's start with
@@ -312,11 +312,11 @@ Taking the `Chain Rule <https://en.wikipedia.org/wiki/Chain_rule>`_ of
 
     \frac{\partial \mathcal{L}}{W_{yh}} = \sum_i^n\frac{\partial \mathcal{L}}{\partial o_i}\frac{\partial o_i}{W_{yh}}
 
-Since :math:`o_i = \left( W_{yh}h_i + b_o \right)`,
+Since :math:`o_i = \left( W_{yh}h_i + b_y \right)`,
 
 .. math::
 
-    \frac{\partial o_i}{W_{yh}} = \frac{\partial }{W_{yh}}\left( W_{yh}h_i + b_o \right) = h_i
+    \frac{\partial o_i}{W_{yh}} = \frac{\partial }{W_{yh}}\left( W_{yh}h_i + b_y \right) = h_i
 
 For the :math:`\frac{\partial \mathcal{L}}{\partial o_i}` we shall recall from the earlier discussion on softmax
 derivative that we cannot simply have
@@ -369,7 +369,11 @@ Observing that
 
 .. math::
 
-    \color{green} \boxed{\frac{\partial \mathcal{L}}{W_{yh}} = \sum_i^n\left( \sigma_i - p(i) \right) h_i}
+    \color{green} \boxed{\frac{\partial \mathcal{L}}{W_{yh}} = \sum_i^n\left[ \sigma_i - p(i) \right] h_i}
+
+.. math::
+
+    \frac{\partial \mathcal{L}}{b_y} = \sum_i^n\frac{\partial \mathcal{L}}{\partial o_i}\frac{\partial o_i}{b_y} = \sum_i^n\left[ \sigma_i - p(i) \right] \times 1 = \sum_i^n\left[ \sigma_i - p(i) \right]
 
 .. rubric:: Footnotes
 
