@@ -375,6 +375,11 @@ Observing that
 
     \frac{\partial \mathcal{L}}{b_y} = \sum_i^n\frac{\partial \mathcal{L}}{\partial o_i}\frac{\partial o_i}{b_y} = \sum_i^n\left[ \sigma_i - p(i) \right] \times 1 = \sum_i^n\left[ \sigma_i - p(i) \right]
 
+.. math::
+
+    \color{green} \boxed{\frac{\partial \mathcal{L}}{b_y} = \sum_i^n\left[ \sigma_i - p(i) \right]}
+
+
 .. rubric:: Footnotes
 
 .. _`exploding gradient`: https://qubitpi.github.io/stanford-cs231n.github.io/rnn/#vanilla-rnn-gradient-flow--vanishing-gradient-problem
