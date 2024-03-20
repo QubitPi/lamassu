@@ -269,22 +269,23 @@ where
     By definition, :math:`p(i)` is the *true* distribution whose exact functional form is unknown. In the language of
     Approximation Theory, :math:`p(i)` is the function that RNN is trying to learn or approximate mathematically.
 
-    Although the :math:`p(i)` makes \mathcal{L} unknown, computationally :math:`p(i)` is perfectly defined in each
-    training example. Taking our "hello" example:
+    Although the :math:`p(i)` makes the exact form of :math:`\mathcal{L}` unknown, computationally :math:`p(i)` is
+    perfectly defined in each training example. Taking our "hello" example:
 
     .. figure:: ../img/char-level-language-model.png
         :align: center
         :width: 60%
 
     The 4 probability distributions of :math:`q(x)` is "reflected" in the **output layer** of this example. They are
-    :math:`o` values and have not been transformed to the :math:`\sigma` distribution yet. But in this case, we are 100%
-    sure that the true probability distribution :math:`p(i)` for the 4 outputs are
+    "reflecting" the probability distribution of :math:`q(x)` because they are only :math:`o` values and have not been
+    transformed to the :math:`\sigma` distribution yet. But in this case, we are 100% sure that the true probability
+    distribution :math:`p(i)` for the 4 outputs are
 
     .. math::
 
         \begin{pmatrix}0\\1\\0\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\\0\end{pmatrix}, \begin{pmatrix}0\\0\\1\\0\end{pmatrix}, \begin{pmatrix}0\\0\\0\\1\end{pmatrix}
 
-    respectively. *That is all we need for training RNN*
+    respectively. *That is all we need for calculating the :math:`\mathcal{L}`*
 
 Deriving Gradient Descent Weight Update Rule
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
