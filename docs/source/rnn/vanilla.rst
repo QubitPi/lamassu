@@ -71,7 +71,7 @@ that of perceptron:
 
 .. math::
 
-    h_t = g_1\left( W_{hh}h_{t - 1} + W_{xh}x_t + b_h \right)
+    h_i = g_1\left( W_{hh}h_{t - 1} + W_{xh}x_t + b_h \right)
 
 where :math:`t` is the index of the "black boxes" shown above. In our example of "hell",
 :math:`t \in \{ 1, 2, 3, 4 \}`
@@ -80,7 +80,7 @@ The other perceptron computes the output like 'e', 'l', 'l', 'o'. We call those 
 
 .. math::
 
-    o_t = g_2\left( W_{hy}h_t + b_o \right)
+    o_i = g_2\left( W_{hy}h_i + b_o \right)
 
 .. admonition:: What are :math:`g_1` and :math:`g_2`?
 
@@ -97,11 +97,11 @@ The other perceptron computes the output like 'e', 'l', 'l', 'o'. We call those 
 
     .. math::
 
-        h_t = tanh\left( W_{hh}h_{t - 1} + W_{xh}x_t + b_h \right)
+        h_i = tanh\left( W_{hh}h_{t - 1} + W_{xh}x_t + b_h \right)
 
     .. math::
 
-        o_t = \left( W_{hy}h_t + b_o \right)
+        o_i = \left( W_{hy}h_i + b_o \right)
 
 Loss Function of RNN
 --------------------
@@ -315,6 +315,12 @@ Taking the `Chain Rule <https://en.wikipedia.org/wiki/Chain_rule>`_ of
 .. math::
 
     \frac{\partial \mathcal{L}}{W_{yh}} = \sum_i^n\frac{\partial \mathcal{L}}{\partial \sigma_i}\frac{\partial \sigma_i}{\partial o_i}\frac{\partial o_i}{W_{yh}} = \sum_i^n\frac{\partial \mathcal{L}}{\partial o_i}\frac{\partial o_i}{W_{yh}}
+
+Since o_i = \left( W_{hy}h_i + b_o \right),
+
+.. math::
+
+    \frac{\partial o_i}{W_{yh}} = \frac{\partial }{W_{yh}}\left( W_{hy}h_i + b_o \right) = h_i
 
 
 .. rubric:: Footnotes
