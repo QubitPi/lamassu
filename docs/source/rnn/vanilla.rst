@@ -150,7 +150,7 @@ with real values in the range (0, 1) that add up to 1.0. It maps :math:`\mathbb{
 
 .. math::
 
-     \sigma(\vec{o}): \begin{pmatrix} x_1\\x_2\\\dots\\x_n\end{pmatrix} \rightarrow \begin{pmatrix} \sigma_1\\\sigma_2\\\dots\\\sigma_n\end{pmatrix}
+     \sigma(\vec{o}): \begin{pmatrix}x_1\\x_2\\\dots\\x_n\end{pmatrix} \rightarrow \begin{pmatrix}\sigma_1\\\sigma_2\\\dots\\\sigma_n\end{pmatrix}
 
 This property of softmax function that it outputs a probability distribution makes it suitable for probabilistic
 interpretation in classification tasks. Neural networks, however, are commonly trained under a log loss (or
@@ -194,13 +194,15 @@ The rest of it becomes trivial then. When :math:`i = k`,
 
 .. math::
 
-    \begin{align}
-    \frac{\partial \sigma_i}{\partial o_k} &= \frac{e^{o_k} \sum_{j = 1}^ne^{o_j} - e^{o_k} e^{o_i}}{\left( \sum_{j = 1}^ne^{o_j} \right)^2}
-                                           &= \frac{e^{o_i} \sum_{j = 1}^ne^{o_j} - e^{o_i} e^{o_i}}{\left( \sum_{j = 1}^ne^{o_j} \right)^2}
-                                           &= \frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}} \frac{\sum_{j = 1}^ne^{o_j} - e^{o_i}}{\sum_{j = 1}^ne^{o_j}}
-                                           &= \sigma_i\left( \frac{\sum_{j = 1}^ne^{o_j}}{\sum_{j = 1}^ne^{o_j}} - \frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}} \right)
-                                           &= \sigma_i \left( 1 - \sigma_i \right)
-    \end{align}
+    \frac{\partial \sigma_i}{\partial o_k} = \frac{e^{o_k} \sum_{j = 1}^ne^{o_j} - e^{o_k} e^{o_i}}{\left( \sum_{j = 1}^ne^{o_j} \right)^2}
+                                           = \frac{e^{o_i} \sum_{j = 1}^ne^{o_j} - e^{o_i} e^{o_i}}{\left( \sum_{j = 1}^ne^{o_j} \right)^2}
+                                           = \frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}} \frac{\sum_{j = 1}^ne^{o_j} - e^{o_i}}{\sum_{j = 1}^ne^{o_j}}
+                                           = \sigma_i\left( \frac{\sum_{j = 1}^ne^{o_j}}{\sum_{j = 1}^ne^{o_j}} - \frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}} \right)
+                                           = \sigma_i \left( 1 - \sigma_i \right)
+
+When :math:`i \ne k`
+
+
 
 Cross-Entropy
 """""""""""""
