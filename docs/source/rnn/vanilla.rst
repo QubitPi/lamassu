@@ -283,7 +283,7 @@ Let's review what we have now, because we will be using all them to calculate th
 
 .. math::
 
-    \mathcal{L} = -\sum_i t_i\log\sigma(\vec{y})_i = -\sum_i t_i\log\frac{e^{y_i}}{\sum_{j = 1}^ne^{y_j}}
+    \mathcal{L} = -\sum_i t_i\log\sigma_i
 
 *Training a RNN model is the same thing as searching for the optimal values for the following parameters of these two
 perceptrons*:
