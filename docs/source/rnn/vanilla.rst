@@ -369,7 +369,7 @@ Observing that
 
 .. math::
 
-    \frac{\partial \mathcal{L}}{W_{yh}} = \sum_i^n\left( \sigma_i - p(i) \right) h_i
+    \color{green} \frac{\partial \mathcal{L}}{W_{yh}} = \sum_i^n\left( \sigma_i - p(i) \right) h_i
 
 .. rubric:: Footnotes
 
