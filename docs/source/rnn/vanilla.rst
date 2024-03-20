@@ -369,6 +369,10 @@ Observing that
 
 .. math::
 
+    \frac{\partial \mathcal{L}}{\partial o_i} = \sigma_i - p(i)
+
+.. math::
+
     \color{green} \boxed{\frac{\partial \mathcal{L}}{W_{yh}} = \sum_i^n\left[ \sigma_i - p(i) \right] h_i}
 
 .. math::
