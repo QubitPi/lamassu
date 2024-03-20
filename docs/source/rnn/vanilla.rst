@@ -138,14 +138,19 @@ In the context of RNN,
 
     \sigma(\vec{o})_i = \frac{e^{o_i}}{\sum_{j = 1}^ne^{o_j}}
 
-We are going to
-
 where
 
 - :math:`n` is the length of a sequence feed into the RNN
 - :math:`o_i` is the output by perceptron unit `i`
 - :math:`i = 1, 2, ..., n`,
 - :math:`\vec{o} = (o_1, o_2, ..., o_n) \in \mathbb{R}^n`
+
+The softmax function takes an N-dimensional vector of arbitrary real values and produces another N-dimensional vector
+with real values in the range (0, 1) that add up to 1.0. It maps:
+
+.. math::
+
+     \sigma(\vec{o}): \begin{pmatrix} x_1\\x_2\\\dots\\x_n\end{pmatrix}
 
 This property of softmax function that it outputs a probability distribution makes it suitable for probabilistic
 interpretation in classification tasks. Neural networks, however, are commonly trained under a log loss (or
