@@ -212,8 +212,6 @@ This concludes the derivative of the softmax function:
 
 .. math::
 
-.. math::
-
     \frac{\partial \sigma_i}{\partial o_k} = \begin{cases}
                                                  \sigma_i \left( 1 - \sigma_i \right), & \text{if}\ i = k \\
                                                  -\sigma_i\sigma_k,                    & \text{otherwise}
@@ -327,6 +325,15 @@ Applying the chain rule again, since :math:`\sigma_i` is a function of :math:`o_
 .. math::
 
     -\sum_i^np(i)\frac{\partial \log\sigma_i}{\partial o_i} = -\sum_i^np(i)\frac{1}{\sigma_i}\frac{\partial\sigma_i}{o_i}
+
+Recall we have already derived that
+
+.. math::
+
+    \frac{\partial \sigma_i}{\partial o_k} = \begin{cases}
+                                                 \sigma_i \left( 1 - \sigma_i \right), & \text{if}\ i = k \\
+                                                 -\sigma_i\sigma_k,                    & \text{otherwise}
+                                             \end{cases}
 
 
 .. rubric:: Footnotes
