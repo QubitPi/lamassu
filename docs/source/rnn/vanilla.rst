@@ -369,7 +369,7 @@ Observing that
 
 .. math::
 
-    \frac{\partial \mathcal{L}}{\partial o_i} = \sigma_i - p(i)
+    \color{green} \boxed{\frac{\partial \mathcal{L}}{\partial o_i} = \sigma_i - p(i)}
 
 .. math::
 
