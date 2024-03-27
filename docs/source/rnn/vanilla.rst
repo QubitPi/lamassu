@@ -324,7 +324,7 @@ If our RNN contains only 1 perceptron unit, the error is propagated back by, usi
 
 .. math::
 
-    \frac{\partial \mathcal{L}}{W} = \frac{\partial \mathcal{L}}{o}\frac{\partial o}{W}
+    \frac{\partial \mathcal{L}}{W} = \frac{\partial \mathcal{L}}{\partial o}\frac{\partial o}{W}
 
 Note that in the RNN mode, :math:`\mathcal{L}` is not a direct function of :math:`W`. Thus its first order derivative
 cannot be computed unless we connect the :math:`\mathcal{L}` to :math:`o` first and then to :math:`W`, because both the
