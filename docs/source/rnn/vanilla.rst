@@ -347,7 +347,7 @@ Therefore, the error propagation of Gradient Descent in RNN is
 
 .. math::
 
-    \color{green} \boxed{ \frac{\partial h}{\partial W} = \sum_{i = 1}^n \frac{\partial h}{\partial o_i} \frac{\partial o_i}{\partial W} }
+    \color{green} \boxed{ \frac{\partial \mathcal{L}}{\partial W} = \sum_{i = 1}^n \frac{\partial \mathcal{L}}{\partial o_i} \frac{\partial o_i}{\partial W} }
 
 where :math:`n` is the length of a RNN sequence
 
@@ -355,17 +355,9 @@ Our target then is to compute
 
 .. math::
 
-    \frac{\partial \mathcal{L}}{W_{yh}}
+    \frac{\partial \mathcal{L}}{W_{yh}}, \frac{\partial \mathcal{L}}{W_{hh}}, \frac{\partial \mathcal{L}}{W_{xh}}
 
-.. math::
-
-    \frac{\partial \mathcal{L}}{W_{hh}}
-
-.. math::
-
-    \frac{\partial \mathcal{L}}{W_{xh}}
-
-Let's look at :math:`\mathcal{L}}{W_{yh}}` first
+Let's look at :math:`\frac{\partial \mathcal{L}}{W_{yh}}` first
 
 .. math::
 
