@@ -263,7 +263,6 @@ In RNN, the probability distribution of :math:`q(x)` is exactly the softmax func
 
 where
 
-- :math:`t` is the target sequence to predict and :math:`t_i` is the i-th element of the true sequence
 - :math:`o` is the predicted sequence by RNN and :math:`o_i` is the i-th element of the predicted sequence
 
 .. admonition:: What is the Mathematical form of :math:`p(i)` in RNN?
@@ -305,8 +304,46 @@ By the Gradient Descent discussed in `MACHINE LEARNING by Mitchell, Thom M. (199
 weight updat rule by *taking partial derivatives with respect to all of the variables above*. Let's start with
 :math:`W_{yh}`
 
-Taking the `Chain Rule <https://en.wikipedia.org/wiki/Chain_rule>`_ of
-:math:`\frac{dz}{dx} = \frac{dz}{dy}\frac{dy}{dx}`,
+`MACHINE LEARNING by Mitchell, Thom M. (1997)`_ has mentioned gradients and partial derivatives as being important for
+an optimization algorithm to update, say, the model weights of a neural network to reach an optimal set of weights. The
+use of partial derivatives permits each weight to be updated independently of the others, by calculating the gradient of
+the error curve with respect to each weight in turn.
+
+Many of the functions that we usually work with in machine learning are *multivariate*, *vector-valued* functions, which
+means that they map multiple real inputs :math:`n` to multiple real outputs :math:`m`:
+
+.. math::
+
+    f: `\mathbb{R}^n \rightarrow \mathbb{R}^m`
+
+In training a neural network, the backpropagation algorithm is responsible for sharing back the error calculated at the
+output layer among the neurons comprising the different hidden layers of the neural network, until it reaches the input.
+
+If our RNN contains only 1 perceptron unit, the error is propagated back by, using the
+`Chain Rule <https://en.wikipedia.org/wiki/Chain_rule>`_ of :math:`\frac{dz}{dx} = \frac{dz}{dy}\frac{dy}{dx}`:
+
+.. math::
+
+    \frac{\partial \mathcal{L}}{W} = \frac{\partial \mathcal{L}}{o}\frac{\partial o}{W}
+
+Note that in the RNN mode, :math:`\mathcal{L}` is not a direct function of :math:`W`. Thus its first order derivative
+cannot be computed unless we connect the :math:`\mathcal{L}` to :math:`o` first and then to :math:`W`, because both the
+first order derivatives of :math:`\frac{\partial \mathcal{L}}{o}` and :math:`\frac{\partial o}{W}` are defined by the
+model
+
+It is more often the case that we'd have many connected perceptrons populating the network, each attributed a different
+weight. Since this is the case for RNN, we can generalise multiple inputs and multiple outputs using the **Generalized
+Chain Rule**:
+
+Consider the case where :math:`x \in \mathbb{R}^m` and :math:`u \in \mathbb{R}^n`; an inner function, :math:`f`, maps
+:math:`m` inputs to :math:`n` outputs, while an outer function, :math:`g`, receives :math:`n` inputs to produce an
+output, :math:`h \in \mathbb{R}^k`. For :math:`i = 1, \dots, m`  the generalized chain rule states:
+
+.. math::
+
+    \frac{\partial h}{\partial x_i} = \frac{\partial h}{\partial u_1} \frac{\partial u_1}{\partial x_i} + \frac{\partial h}{\partial u_2} \frac{\partial u_2}{\partial x_i} + \dots + \frac{\partial h}{\partial u_n} \frac{\partial u_n}{\partial x_i}
+
+
 
 .. math::
 
