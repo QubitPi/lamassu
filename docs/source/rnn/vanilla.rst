@@ -314,7 +314,7 @@ means that they map multiple real inputs :math:`n` to multiple real outputs :mat
 
 .. math::
 
-    f: `\mathbb{R}^n \rightarrow \mathbb{R}^m`
+    f: \mathbb{R}^n \rightarrow \mathbb{R}^m
 
 In training a neural network, the backpropagation algorithm is responsible for sharing back the error calculated at the
 output layer among the neurons comprising the different hidden layers of the neural network, until it reaches the input.
@@ -343,7 +343,13 @@ output, :math:`h \in \mathbb{R}^k`. For :math:`i = 1, \dots, m`  the generalized
 
     \frac{\partial h}{\partial x_i} = \frac{\partial h}{\partial u_1} \frac{\partial u_1}{\partial x_i} + \frac{\partial h}{\partial u_2} \frac{\partial u_2}{\partial x_i} + \dots + \frac{\partial h}{\partial u_n} \frac{\partial u_n}{\partial x_i} = \sum_{j = 1}^n \frac{\partial h}{\partial u_j} \frac{\partial u_j}{\partial x_i}
 
+Therefore, the error propagation of Gradient Descent in RNN is
 
+.. math::
+
+    \frac{\partial h}{\partial W} = \sum_{i = 1}^n \frac{\partial h}{\partial o_i} \frac{\partial o_i}{\partial W}
+
+where :math:`n` is the length of a RNN sequence
 
 .. math::
 
