@@ -347,10 +347,12 @@ Therefore, the error propagation of Gradient Descent in RNN is
 
 .. math::
 
-    \color{green} \boxed{ \begin{align}
-        \frac{\partial \mathcal{L}}{\partial W_{yh}} = \sum_{i = 1}^n \frac{\partial \mathcal{L}}{\partial o_i} \frac{\partial o_i}{\partial W_{yh}} \\ \\
-        \frac{\partial \mathcal{L}}{\partial W_{hh}} = \sum_{i = 1}^n \frac{\partial \mathcal{L}}{\partial h_i} \frac{\partial h_i}{\partial W_{hh}} \\ \\
-        \frac{\partial \mathcal{L}}{\partial W_{xh}} = \sum_{i = 1}^n \frac{\partial \mathcal{L}}{\partial h_i} \frac{\partial h_i}{\partial W_{xh}} \end{align}
+    \color{green} \boxed{
+        \begin{align}
+            \frac{\partial \mathcal{L}}{\partial W_{yh}} = \sum_{i = 1}^n \frac{\partial \mathcal{L}}{\partial o_i} \frac{\partial o_i}{\partial W_{yh}} \\ \\
+            \frac{\partial \mathcal{L}}{\partial W_{hh}} = \sum_{i = 1}^n \frac{\partial \mathcal{L}}{\partial h_i} \frac{\partial h_i}{\partial W_{hh}} \\ \\
+            \frac{\partial \mathcal{L}}{\partial W_{xh}} = \sum_{i = 1}^n \frac{\partial \mathcal{L}}{\partial h_i} \frac{\partial h_i}{\partial W_{xh}}
+        \end{align}
     }
 
 where :math:`n` is the length of a RNN sequence
@@ -433,7 +435,13 @@ Observing that
     \color{green} \boxed{\frac{\partial \mathcal{L}}{b_y} = \sum_i^n\left[ \sigma_i - p(i) \right]}
 
 
-Now let's look at \mathcal{L}}{W_{hh}}:
+Now let's look at :math:`\mathcal{L}}{W_{hh}}`:
+
+.. math::
+
+    \frac{\partial \mathcal{L}}{\partial W_{hh}} = \sum_{i = 1}^n \frac{\partial \mathcal{L}}{\partial h_i} \frac{\partial h_i}{\partial W_{hh}} \\ \\
+
+**partial derivative with respect to the next hidden state**  https://gist.github.com/karpathy/d4dee566867f8291f086?permalink_comment_id=4740725#gistcomment-4740725
 
 .. rubric:: Footnotes
 
