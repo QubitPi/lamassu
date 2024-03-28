@@ -439,7 +439,7 @@ Now let's look at :math:`\mathcal{L}}{W_{hh}}`:
 
 .. math::
 
-    \frac{\partial \mathcal{L}}{\partial W_{hh}} = \sum_{i = 1}^n \frac{\partial \mathcal{L}}{\partial h_i} \frac{\partial h_i}{\partial W_{hh}} \\ \\
+    \frac{\partial \mathcal{L}}{\partial W_{hh}} = \sum_{i = 1}^n \frac{\partial \mathcal{L}}{\partial h_i} \frac{\partial h_i}{\partial W_{hh}}
 
 **partial derivative with respect to the next hidden state**  https://gist.github.com/karpathy/d4dee566867f8291f086?permalink_comment_id=4740725#gistcomment-4740725
 
