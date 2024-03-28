@@ -435,11 +435,17 @@ Observing that
     \color{green} \boxed{\frac{\partial \mathcal{L}}{b_y} = \sum_i^n\left[ \sigma_i - p(i) \right]}
 
 
-Now let's look at :math:`\mathcal{L}}{W_{hh}}`:
+Now let's look at :math:`\frac{\partial \mathcal{L}}{\partial W_{hh}}`:
 
 .. math::
 
-    \frac{\partial \mathcal{L}}{\partial W_{hh}} = \sum_{i = 1}^n \frac{\partial \mathcal{L}}{\partial h_i} \frac{\partial h_i}{\partial W_{hh}}
+    \frac{\partial \mathcal{L}}{\partial W_{hh}} = \sum_{i = 1}^n \frac{\partial \mathcal{L}}{\partial h_i} \frac{\partial h_i}{\partial W_{hh}} = \nabla W_hh \mathcal{L}
+
+
+.. math::
+
+    \nabla W_hh \mathcal{L} = \left( \frac{\partial}{} \right
+
 
 **partial derivative with respect to the next hidden state**  https://gist.github.com/karpathy/d4dee566867f8291f086?permalink_comment_id=4740725#gistcomment-4740725
 
