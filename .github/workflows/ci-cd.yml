@@ -21,6 +21,9 @@ name: CI/CD
       - master
 
 jobs:
+  yml-md-style-and-link-checks:
+    uses: QubitPi/hashicorp-aws/.github/workflows/yml-md-style-and-link-checks.yml@master
+
   release:
     name: Publish Lamassu To PyPI
     runs-on: ubuntu-latest

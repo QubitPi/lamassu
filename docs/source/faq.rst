@@ -8,9 +8,8 @@ Frequently Asked Questions
 Python Sphinx Autodoc Is Not Rendering on readthedocs
 =====================================================
 
-The project's dependencies are not specified on RTD, but instead have installed the dependencies locally. We can verify
-this in the `build log <https://readthedocs.org/api/v2/build/17857935.txt>`_. Visit the project's Builds, click a build,
-and click "view raw"::
+The project's dependencies are not specified on RTD, but instead have installed the dependencies locally. Visit the
+project's Builds, click a build, and click "view raw"::
 
     WARNING: autodoc: failed to import module 'rnn' from module 'lamassu'; the following exception was raised:
     No module named 'matplotlib'
