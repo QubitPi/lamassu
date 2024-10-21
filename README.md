@@ -69,7 +69,7 @@ docker run --rm \
   -p 8080:8080 \
   -v $ML_MODEL_PATH:/opt/ml/model \
   -e PYTHONPATH="/opt/ml/model:$PYTHONPATH" \
-  -e GUNICORN_CMD_ARGS="--timeout 60 -k gevent --workers=1" \
+  -e GUNICORN_CMD_ARGS="--timeout 60 -k gevent" \
   "entity-extraction"
 ```
 
@@ -78,17 +78,7 @@ docker run --rm \
 > error is seen, refer to
 > https://forums.docker.com/t/docker-errors-dockerexception-error-while-fetching-server-api-version-connection-aborted-filenotfounderror-2-no-such-file-or-directory-error-in-python/135637/5
 
-The container runs Gunicorn server inside to serve incoming requests
-
-> [!WARNING]
-> The number of gunicorn worker process MUST be **1** (`--workers=1`) to prevent multiple workers from downloading a
-> HanLP pre-trained model to the same location, which results in runtime error in Docker container. In **native**
-> environment, this error can be
->
-> ```console
-> OSError: [Errno 39] Directory not empty: '/root/.hanlp/mtl/close_tok_pos_ner_srl_dep_sdp_con_electra_small_20210304_135840'
-> -> '/root/.hanlp/mtl/close_tok_pos_ner_srl_dep_sdp_con_electra_small_20210111_124159'
-> ```
+The container runs Gunicorn server inside to serve incoming requests.
 
 Example query:
 

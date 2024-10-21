@@ -77,7 +77,7 @@ jobs:
             -p 8080:8080 \
             -v $ML_MODEL_PATH:/opt/ml/model \
             -e PYTHONPATH="/opt/ml/model:$PYTHONPATH" \
-            -e GUNICORN_CMD_ARGS="--timeout 60 -k gevent --workers=1" \
+            -e GUNICORN_CMD_ARGS="--timeout 60 -k gevent" \
             "entity-extraction" &
         working-directory: mlflow
       - name: Wait until container is up
