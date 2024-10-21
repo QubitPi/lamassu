@@ -17,7 +17,7 @@ license: apache-2.0
 [![Apache License Badge]][Apache License, Version 2.0]
 
 Lamassu is a Named Entity Extraction service that is capable of running on [Hugging Face][Hugging Face space URL] and
-MLflow managed environment. It is the service backing the [Nexus Graph](https://paion-data.github.io/nexusgraph.com/)
+MLflow managed environment. It is the service backing the [Nexus Graph](https://www.nexusgraph.com/)
 
 Hugging Face
 ------------
